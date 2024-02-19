@@ -6,7 +6,7 @@ export default function Home() {
   
   return (
     <>
-      <SEO />
+      <SEO urlEN={'/'} urlUA={'/ua/golovna'}/>
       <div className="container">
         <h1>{t('title')}</h1>
       </div>
