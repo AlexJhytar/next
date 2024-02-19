@@ -2,7 +2,7 @@
 
 const nextConfig = {
   // distDir: 'dist',
-  // output: 'standalone',
+  output: 'standalone',
   // images: {
   //   domains: ['next.testsofts.com'], // Add your domain here
   // },
