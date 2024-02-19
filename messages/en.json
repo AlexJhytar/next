@@ -1,0 +1,21 @@
+{
+  "Index": {
+    "title": "Test en!",
+    "select": "Select a language",
+    "locale": "{locale, select, ua {Ukraine} en {English} other {Unknown}}"
+  },
+  "NotFoundPage": {
+    "title": "Page not found"
+  },
+  "Contact": {
+    "title": "Contact page"
+  },
+  "Menu": {
+    "about": "About us",
+    "contacts": "Contacts"
+  },
+  "About": {
+    "title": "About us",
+    "team": "team"
+  }
+}

@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 
-const withNextIntl = require('next-intl/plugin')();
-
 const nextConfig = {
-  reactStrictMode: true,
-  distDir: 'build',
-  // output: 'export',
-};
+  // distDir: 'dist',
+  // output: 'standalone',
+  // images: {
+  //   domains: ['next.testsofts.com'], // Add your domain here
+  // },
+}
 
+const withNextIntl = require('next-intl/plugin')(
+  './src/i18n.ts'
+);
 
-export default withNextIntl(nextConfig);
+module.exports = withNextIntl(nextConfig);

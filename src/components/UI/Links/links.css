@@ -1,0 +1,74 @@
+.block-link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #0BC594;
+  position: relative;
+  display: inline-block;
+  padding-right: 42px;
+  transition: color 0.4s;
+}
+@media (max-width: 1359px) {
+  .block-link {
+    font-size: 15px;
+  }
+}
+.block-link::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  width: calc(100% - 42px);
+  left: 0;
+  margin: 0 auto;
+  height: 1px;
+  background: #0bc594;
+  transition: all 0.3s;
+}
+.block-link .arrow-icon {
+  position: absolute;
+  top: calc(50% - 16px);
+  right: 0;
+  width: 30px;
+  height: 30px;
+  fill: #0BC594;
+  stroke: #0BC594;
+  z-index: 1;
+  transition: all 0.3s;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.block-link .arrow-icon--circle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.block-link:hover {
+  color: #121212;
+}
+[data-theme=dark] .block-link:hover {
+  color: #FFFFFF;
+}
+.block-link:hover .arrow-icon {
+  transform: translate3d(5px, 0, 0) scale(1.1);
+  stroke: #0BB186;
+}
+.block-link:hover .arrow-icon path {
+  position: relative;
+  transform: translateX(3px);
+}
+.block-link:hover .arrow-icon--circle {
+  transition: stroke-dashoffset 0.5s ease;
+  stroke: #0BB186;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 2;
+}
+.block-link:hover::before {
+  width: 25%;
+  background: #0BB186;
+}
+.block-link span {
+  position: relative;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=links.css.map */

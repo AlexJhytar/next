@@ -1,0 +1,83 @@
+@import "../../../assets/styles/abstacts/_style";
+
+.block-link {
+  @include fw(500);
+  font-size: 16px;
+  @include lh();
+  text-transform: uppercase;
+  color: $color-green;
+  position: relative;
+  display: inline-block;
+  padding-right: 42px;
+  transition: color .4s;
+  @media (max-width: $desktop-wide) {
+    font-size: 15px;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    width: calc(100% - 42px);
+    left: 0;
+    margin: 0 auto;
+    height: 1px;
+    background: $bg-green;
+    transition: all .3s;
+  }
+  
+  .arrow-icon {
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 0;
+    width: 30px;
+    height: 30px;
+    fill: $color-green;
+    stroke: $color-green;
+    z-index: 1;
+    transition: all .3s;
+    vertical-align: middle;
+    border-radius: 50%;
+    
+    &--circle {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+  }
+  
+  &:hover {
+    color: $bg-dark;
+    
+    [data-theme=dark] & {
+      color: $color-white;
+    }
+    
+    .arrow-icon {
+      transform: translate3d(5px, 0, 0) scale(1.1);
+      stroke: $bg-green-hover;
+      
+      path {
+        position: relative;
+        transform: translateX(3px);
+      }
+    }
+    
+    .arrow-icon--circle {
+      transition: stroke-dashoffset .5s ease;
+      stroke: $bg-green-hover;
+      stroke-dasharray: 20;
+      stroke-dashoffset: 2;
+    }
+    
+    &::before {
+      width: 25%;
+      background: $bg-green-hover;
+    }
+  }
+  
+  span {
+    position: relative;
+    z-index: 1;
+  }
+;
+}

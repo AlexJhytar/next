@@ -1,0 +1,21 @@
+{
+  "Index": {
+    "title": "Тест укр!",
+    "select": "Виберіть мову",
+    "locale": "{locale, select, ua {Ukraine} en {English} other {Unknown}}"
+  },
+  "NotFoundPage": {
+    "title": "Сторінку не знайдено"
+  },
+  "Contact": {
+    "title": "Сторінка контактів"
+  },
+  "Menu": {
+    "about": "Про нас",
+    "contacts": "Контакти"
+  },
+  "About": {
+    "title": "Про нас",
+    "team": "команда"
+  }
+}
