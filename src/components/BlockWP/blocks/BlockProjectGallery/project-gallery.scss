@@ -1,0 +1,117 @@
+@import "../../../../assets/styles/abstacts/_style";
+
+.project-gallery {
+  width: 100%;
+  margin: 100px 0;
+  @media (max-width: $ipad) {
+    margin: 80px 0;
+  }
+  @media (max-width: $phone-wide) {
+    margin: 60px 0;
+  }
+  
+  &_list {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 21px 0;
+    position: relative;
+    margin: 0 auto;
+    @media (max-width: $desktop-wide) {
+      gap: 18px 0;
+      width: 100%;
+    }
+    @media (max-width: $ipad) {
+      gap: 14px 0;
+      width: 100%;
+    }
+    @media (max-width: $phone-wide) {
+      gap: 12px 0;
+    }
+  }
+  
+  &_loop {
+    &:nth-of-type(3) {
+      .project-gallery_inner {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  
+  &_inner {
+    display: flex;
+    width: fit-content;
+    animation-name: loopSlider;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: var(--direction);
+    animation-duration: var(--duration);
+    
+    .lg-react-element {
+      @extend %flex;
+    }
+
+    .gallery-item {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(0deg, rgba(99, 159, 171, 0.07), rgba(99, 159, 171, 0.07)), #FFFFFF;
+      border-radius: 10px;
+      margin-right: 20px; // Must used margin-right instead of gap for the loop to be smooth
+      box-shadow: 10px 22px 27px 0 rgba(0, 0, 0, 0.15);
+      height: 300px;
+      width: auto;
+      transition: all .5s;
+      @media (max-width: $wide-screen) {
+        height: 260px;
+      }
+      @media (max-width: $desktop-wide) {
+        margin-right: 18px;
+      }
+      @media (max-width: $desktop) {
+        height: 220px;
+      }
+      @media (max-width: $ipad) {
+        height: 200px;
+        margin-right: 14px;
+      }
+      @media (max-width: $phone-wide) {
+        height: 160px;
+        border-radius: 4px;
+        margin-right: 14px;
+      }
+      @media (max-width: $phone) {
+        height: 120px;
+      }
+      
+      &:nth-of-type(2n) {
+        @media (max-width: $ipad) {
+          display: none;
+        }
+      }
+      
+      .gallery-img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        @media (max-width: $phone-wide) {
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+.lg-backdrop.in {
+  opacity: .8 !important;
+}
+
+@keyframes loopSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

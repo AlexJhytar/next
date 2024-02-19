@@ -1,0 +1,385 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.tools {
+  width: 100%;
+  position: relative;
+  padding: 100px 0;
+  margin: 100px 0;
+  overflow: hidden;
+  @media (max-width: $wide-screen) {
+    margin: 0;
+  }
+  @media (max-width: $ipad) {
+    padding: 80px 0;
+  }
+  @media (max-width: $phone-wide) {
+    padding: 60px 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    width: calc(100% - 40px);
+    height: 100%;
+    max-width: 1660px;
+    border-radius: 50px;
+    z-index: -1;
+    background-color: $bg-dark-blue;
+    @media (max-width: $wide-screen) {
+      max-width: 100%;
+    }
+    @media (max-width: $desktop-wide) {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+  
+  &__wrap {
+    @extend %flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    position: relative;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -180px;
+      width: 480px;
+      height: 480px;
+      opacity: .4;
+      left: -60px;
+      animation: ellipse 8s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      @media (max-width: $ipad) {
+        width: 240px;
+        height: 240px;
+        left: -40px;
+        bottom: -50px;
+      }
+      @media (max-width: $phone-wide) {
+        bottom: -120px;
+      }
+    
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      top: -180px;
+      width: 480px;
+      height: 480px;
+      right: -20px;
+      opacity: .4;
+      animation: ellipse 8s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      @media (max-width: $ipad) {
+        width: 240px;
+        height: 240px;
+        right: -40px;
+        top: -20px;
+      }
+      @media (max-width: $phone-wide) {
+        right: -40px;
+      }
+    }
+  }
+  
+  &__title {
+    color: $color-white;
+    margin-bottom: 60px;
+    @media (max-width: $desktop) {
+      margin-bottom: 50px;
+    }
+  }
+  
+  &__subtitle {
+    @include fw();
+    @include lh();
+    font-size: 18px;
+    color: $color-white;
+    @media (max-width: $wide-screen) {
+      font-size: 17px;
+    }
+    @media (max-width: $desktop) {
+      font-size: 16px;
+    }
+    @media (max-width: $ipad) {
+      font-size: 15px;
+    }
+    @media (max-width: $phone-wide) {
+      font-size: 14px;
+    }
+  }
+  
+  &__inner {
+    margin-top: 80px;
+    @media (max-width: $desktop) {
+      margin-top: 60px;
+    }
+  }
+  
+  .tools-slider {
+    width: 100%;
+    @media (max-width: $phone-wide) {
+      padding-bottom: 113px;
+    }
+    
+    .swiper-wrapper {
+      height: auto;
+      flex-wrap: wrap;
+      transition-timing-function: linear !important;
+      max-width: 100%;
+      @media (max-width: $phone-wide) {
+        max-width: initial;
+      }
+      
+      .swiper-slide {
+        width: auto;
+      }
+    }
+  
+    .swiper-pagination-fraction {
+      position: absolute;
+      bottom: 0;
+      left: 384px;
+      @extend %inline-flex;
+      text-align: left;
+      color: $bg-white;
+      @include fw();
+      @include lh();
+      font-size: 18px;
+      display: none;
+      @media (max-width: $phone-wide) {
+        display: block;
+        font-size: 15px;
+        bottom: 55px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+      }
+    
+      .swiper-pagination-current {
+        margin-right: 8px;
+      }
+    
+      .swiper-pagination-total {
+        margin-left: 8px;
+      }
+    }
+  
+    .swiper-button-prev, .swiper-button-next {
+      top: auto;
+      bottom: -50px;
+      width: 78px;
+      height: 38px;
+      border: 1px solid $bg-green;
+      border-radius: 43px;
+      z-index: 11;
+      pointer-events: none;
+      opacity: 0;
+      transition: none;
+      position: absolute;
+      @media (max-width: $phone-wide) {
+        opacity: 1;
+        pointer-events: auto;
+        bottom: 0;
+        transition: all .3s linear;
+      }
+    
+      &::after {
+        content: none;
+        position: absolute;
+        width: 24px;
+        height: 16px;
+        background-image: url("../../../../../src/img/icons/arrow-black.svg");
+        background-size: cover;
+        transition: all .3s linear;
+        filter: invert(1);
+        @media (max-width: $phone-wide) {
+          content: '';
+        }
+      }
+    
+      &:hover {
+        background-color: $bg-green;
+      }
+      
+      &.swiper-button-disabled {
+        opacity: .5;
+      }
+    }
+  
+    .swiper-button-prev {
+      left: auto;
+      right: 96px;
+      @media (max-width: $desktop) {
+        right: 90px;
+      }
+      @media (max-width: $tablet) {
+        right: 88px;
+      }
+      @media (max-width: $phone-wide) {
+        left: 0;
+        margin: 0 auto;
+      }
+    }
+  
+    .swiper-button-next {
+      right: 0;
+      @media (max-width: $phone-wide) {
+        left: 88px;
+        margin: 0 auto;
+      }
+    
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  
+  &__block {
+    background: linear-gradient(0deg, rgba(99, 159, 171, 0.07), rgba(99, 159, 171, 0.07)), #FFFFFF;
+    box-shadow: 1.37203px 6.40279px 25.4815px rgba(20, 33, 61, 0.103259), 0.290237px 1.35444px 6.51852px rgba(20, 33, 61, 0.0667407);
+    border-radius: 15px;
+    padding: 20px 40px;
+    @extend %inline-flex;
+    align-items: center;
+    margin-right: 12px;
+    margin-bottom: 21px;
+    @media (max-width: $wide-screen) {
+      padding: 16px 36px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: $desktop) {
+      padding: 16px 30px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: $phone-wide) {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 0;
+      margin-right: 0;
+      padding: 16px 24px;
+    }
+    @media (max-width: $phone) {
+      padding: 16px 20px;
+    }
+    
+    &-icon {
+      max-height: 25px;
+      margin-right: 20px;
+      height: 100%;
+    }
+    
+    &-name {
+      @include fw(500);
+      @include lh();
+      font-size: 16px;
+      text-transform: uppercase;
+      @media (max-width: $desktop) {
+        font-size: 15px;
+      }
+    }
+  }
+  
+  //loop slider
+  &-list {
+    width: calc(100% - 40px);
+    max-width: 1660px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 21px 0;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    @media (max-width: $desktop-wide) {
+      gap: 18px 0;
+      width: 100%;
+    }
+    @media (max-width: $ipad) {
+      gap: 16px 0;
+      width: 100%;
+    }
+    @media (max-width: $phone-wide) {
+      gap: 12px 0;
+    }
+  }
+  
+  &-slider {
+    &__inner {
+      display: flex;
+      width: fit-content;
+      animation-name: loopSlider;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: var(--direction);
+      animation-duration: var(--duration);
+      
+      .tag {
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+        white-space: nowrap;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 22.4px */
+        text-transform: uppercase;
+        background: linear-gradient(0deg, rgba(99, 159, 171, 0.07), rgba(99, 159, 171, 0.07)), #FFFFFF;
+        border-radius: 15px;
+        padding: 20px 40px;
+        margin-right: 12px; // Must used margin-right instead of gap for the loop to be smooth
+        box-shadow: 0.29023659229278564px 1.3544374704360962px 6.518518447875977px 0px rgba(20, 33, 61, 0.07), 1.3720275163650513px 6.40279483795166px 25.481481552124023px 0px rgba(20, 33, 61, 0.10);
+        @media (max-width: $wide-screen) {
+          padding: 16px 36px;
+        }
+        @media (max-width: $desktop) {
+          padding: 16px 30px;
+          font-size: 15px;
+        }
+        @media (max-width: $phone-wide) {
+          border-radius: 5px;
+          padding: 16px 24px;
+        }
+        @media (max-width: $phone) {
+          padding: 16px 20px;
+        }
+  
+        &-icon {
+          max-height: 25px;
+          height: 100%;
+          @media (max-width: $phone-wide) {
+            max-height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .fade {
+    pointer-events: none;
+    background: linear-gradient(90deg, $bg-dark-blue, transparent 15%, transparent 85%, $bg-dark-blue);
+    position: absolute;
+    inset: 0;
+    @media (max-width: $ipad) {
+      display: none;
+    }
+  }
+  
+}
+
+@keyframes loopSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

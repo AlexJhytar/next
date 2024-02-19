@@ -1,0 +1,261 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.services {
+  width: 100%;
+  margin: 120px 0;
+  position: relative;
+  z-index: 2;
+  @media (max-width: $wide-screen) {
+    margin: 100px 0;
+  }
+  @media (max-width: $ipad) {
+    margin: 80px 0;
+  }
+  @media (max-width: $phone-wide) {
+    margin: 60px 0;
+  }
+  
+  &__head {
+    @extend %flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    @media (max-width: $ipad) {
+      flex-wrap: wrap;
+    }
+    
+    &-title {
+      @media (max-width: $ipad) {
+        margin-bottom: 40px;
+      }
+    }
+    
+    &-text {
+      width: 972px;
+      @include fw();
+      font-size: 18px;
+      @include lh();
+      @media (max-width: $wide-screen) {
+        width: 700px;
+        font-size: 16px;
+      }
+      @media (max-width: $desktop) {
+        font-size: 15px;
+        width: 600px;
+      }
+      @media (max-width: $ipad) {
+        width: 100%;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  &__wrap {
+    @extend %flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  &__block {
+    border-radius: 30px;
+    background: rgba(99, 159, 171, 0.07);
+    width: calc(25% - 15px);
+    position: relative;
+    padding: 49px 35px;
+    box-shadow: -5px -5px 10px rgba(6, 94, 71, 0.07), 5px 5px 10px rgba(6, 94, 71, 0.07);
+    overflow: hidden;
+    @media (max-width: $wide-screen) {
+      padding: 40px 30px;
+    }
+    @media (max-width: $desktop) {
+      width: calc(33% - 15px);
+      padding: 30px;
+    }
+    @media (max-width: $ipad) {
+      width: calc(50% - 15px);
+      padding: 20px 20px 20px 100px;
+      border-radius: 15px;
+    }
+    @media (max-width: $phone-wide) {
+      width: 100%;
+      margin-right: 0;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background: $bg-dark-blue;
+      transition: all .3s ease-in-out;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      right: -160px;
+      top: -160px;
+      width: 480px;
+      height: 480px;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0s;
+      animation: ellipse 10s linear infinite;
+      @media (max-width: $desktop) {
+        width: 300px;
+        height: 300px;
+        right: -60px;
+        top: -60px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 240px;
+        height: 240px;
+        background-size: cover;
+        left: -60px;
+        top: -60px;
+      }
+    }
+    
+    .block-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background-color: $bg-dark-blue;
+      padding: 20px;
+      margin-bottom: 40px;
+      transition: $standart;
+      position: relative;
+      z-index: 1;
+      transform: translateZ(0);
+      @media (max-width: $wide-screen) {
+        width: 64px;
+        height: 64px;
+        padding: 18px;
+      }
+      @media (max-width: $desktop) {
+        margin-bottom: 30px;
+      }
+      @media (max-width: $ipad) {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        padding: 16px;
+      }
+      @media (max-width: $tablet) {
+        width: 52px;
+        height: 52px;
+        padding: 13px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 48px;
+        height: 48px;
+        padding: 12px;
+      }
+      
+      img, svg {
+        max-width: 100%;
+        max-height: 100%;
+        fill: $color-green;
+      }
+    }
+    
+    .block-title {
+      font-size: 18px;
+      @include lh();
+      font-family: $ff_Manrope;
+      padding-bottom: 44px;
+      transition: $standart;
+      position: relative;
+      z-index: 1;
+      transform: translateZ(0);
+      @media (max-width: $wide-screen) {
+        font-size: 16px;
+      }
+      @media (max-width: $desktop) {
+        font-size: 15px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+    
+    .block-link {
+      position: absolute;
+      left: 35px;
+      bottom: 49px;
+      transform: translateZ(0);
+      @media (max-width: $wide-screen) {
+        font-size: 15px;
+        left: 30px;
+      }
+      @media (max-width: $desktop) {
+        left: 30px;
+        bottom: 36px;
+      }
+      @media (max-width: $ipad) {
+        left: 100px;
+        bottom: 20px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+  
+    &:hover {
+      box-shadow: -5px -5px 10px rgba(6, 94, 71, 0.07), 5px 5px 10px rgba(6, 94, 71, 0.2);
+      
+      &::before {
+        height: 110%;
+      }
+      
+      &::after {
+        opacity: .5;
+        transition: opacity 1s .2s;
+      }
+    
+      .block-icon {
+        background: rgba(99, 159, 171, 0.2);
+      }
+    
+      .block-title {
+        color: $color-white;
+      }
+      
+      .block-link {
+        color: $color-white;
+  
+        .arrow-icon {
+          transform: translate3d(5px, 0, 0) scale(1.1);
+          stroke: $bg-green-hover;
+    
+          path {
+            position: relative;
+            transform: translateX(3px);
+          }
+        }
+  
+        .arrow-icon--circle {
+          transition: stroke-dashoffset .5s ease;
+          stroke: $bg-green-hover;
+          stroke-dasharray: 20;
+          stroke-dashoffset: 2;
+        }
+  
+        &::before {
+          width: 25%;
+          background: $bg-green-hover;
+        }
+      }
+    }
+  }
+  
+}

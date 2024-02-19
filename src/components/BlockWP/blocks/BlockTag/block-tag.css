@@ -1,0 +1,24 @@
+.block-tag {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: lowercase;
+  color: #B1B1B1;
+  margin-bottom: 16px;
+  cursor: default;
+}
+@media (max-width: 767px) {
+  .block-tag {
+    font-size: 13px;
+  }
+}
+@media (max-width: 639px) {
+  .block-tag {
+    font-size: 12px;
+  }
+}
+[data-theme=dark] .block-tag {
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=block-tag.css.map */

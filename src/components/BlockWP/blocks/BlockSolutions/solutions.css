@@ -1,0 +1,131 @@
+.solutions__block, .solutions__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.solutions {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #14213d;
+}
+@media (max-width: 1023px) {
+  .solutions {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 639px) {
+  .solutions {
+    padding: 60px 0;
+  }
+}
+.solutions .page-title {
+  color: #FFFFFF;
+}
+.solutions__wrap {
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 60px;
+}
+@media (max-width: 1023px) {
+  .solutions__wrap {
+    gap: 14px;
+    margin-top: 40px;
+  }
+}
+@media (max-width: 639px) {
+  .solutions__wrap {
+    gap: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .solutions__wrap {
+    gap: 8px;
+  }
+}
+.solutions__block {
+  width: calc(33.333% - 15px);
+  border-radius: 30px;
+  padding: 30px 50px;
+  flex-flow: column;
+  gap: 20px;
+  background-color: rgba(99, 159, 171, 0.07);
+}
+@media (max-width: 1600px) {
+  .solutions__block {
+    padding: 30px 40px;
+  }
+}
+@media (max-width: 1199px) {
+  .solutions__block {
+    padding: 30px;
+  }
+}
+@media (max-width: 1023px) {
+  .solutions__block {
+    width: calc(50% - 7px);
+    border-radius: 15px;
+  }
+}
+@media (max-width: 639px) {
+  .solutions__block {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .solutions__block {
+    padding: 30px 20px;
+  }
+}
+.solutions__block_numb {
+  font-size: 24px;
+  font-style: normal;
+  line-height: 140%;
+  font-weight: 800;
+  font-family: "Manrope";
+  color: #FFFFFF;
+}
+@media (max-width: 1600px) {
+  .solutions__block_numb {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1199px) {
+  .solutions__block_numb {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .solutions__block_numb {
+    font-size: 18px;
+  }
+}
+@media (max-width: 400px) {
+  .solutions__block_numb {
+    font-size: 16px;
+  }
+}
+.solutions__block_text {
+  font-size: 18px;
+  font-style: normal;
+  line-height: 140%;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+@media (max-width: 1600px) {
+  .solutions__block_text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1199px) {
+  .solutions__block_text {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .solutions__block_text {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=solutions.css.map */

@@ -1,0 +1,267 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.page-services {
+  width: 100%;
+  margin: 120px 0;
+  position: relative;
+  z-index: 2;
+  @media (max-width: $wide-screen) {
+    margin: 100px 0;
+  }
+  @media (max-width: $ipad) {
+    margin: 80px 0;
+  }
+  @media (max-width: $phone-wide) {
+    margin: 60px 0;
+  }
+  
+  &__head {
+    @extend %flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    @media (max-width: $ipad) {
+      flex-wrap: wrap;
+    }
+    
+    &-title {
+      @media (max-width: $ipad) {
+        width: 100%;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  &__wrap {
+    @extend %flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  &__block {
+    border-radius: 30px;
+    background: rgba(99, 159, 171, 0.07);
+    width: calc(50% - 10px);
+    position: relative;
+    padding: 49px 35px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: -5px -5px 10px rgba(6, 94, 71, 0.07), 5px 5px 10px rgba(6, 94, 71, 0.07);
+    @media (max-width: $wide-screen) {
+      padding: 40px 30px;
+    }
+    @media (max-width: $desktop) {
+      padding: 30px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+      border-radius: 15px;
+      padding: 40px;
+    }
+    @media (max-width: $phone-wide) {
+      width: 100%;
+      margin-right: 0;
+      padding: 30px 30px 40px;
+    }
+    @media (max-width: $phone) {
+      padding: 30px 20px 40px;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 480px;
+      height: 480px;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0s;
+      animation: ellipse 10s linear infinite;
+      @media (max-width: $desktop) {
+        width: 300px;
+        height: 300px;
+        right: -60px;
+        top: -60px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 240px;
+        height: 240px;
+        background-size: cover;
+        left: -60px;
+        top: -60px;
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background: $bg-dark-blue;
+      transition: all .3s linear;
+    }
+    
+    &-head {
+      @extend %flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      @media (max-width: $tablet) {
+        margin-bottom: 30px;
+      }
+      
+      .block-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 16px;
+        background-color: $bg-dark-blue;
+        padding: 20px;
+        transition: $standart;
+        @media (max-width: $wide-screen) {
+          width: 64px;
+          height: 64px;
+          padding: 18px;
+        }
+        @media (max-width: $ipad) {
+          width: 60px;
+          height: 60px;
+          border-radius: 5px;
+          padding: 16px;
+        }
+        @media (max-width: $tablet) {
+          width: 52px;
+          height: 52px;
+          padding: 13px;
+        }
+        @media (max-width: $phone-wide) {
+          width: 48px;
+          height: 48px;
+          padding: 12px;
+        }
+        
+        img, svg {
+          max-width: 100%;
+          max-height: 100%;
+          fill: $color-green;
+        }
+      }
+      
+      .block-title {
+        font-size: 18px;
+        @include fw(500);
+        @include lh();
+        font-family: $ff_Manrope;
+        text-transform: uppercase;
+        transition: $standart;
+        width: calc(100% - 112px);
+        @media (max-width: $wide-screen) {
+          font-size: 16px;
+        }
+        @media (max-width: $desktop) {
+          font-size: 15px;
+        }
+        @media (max-width: $ipad) {
+          width: calc(100% - 92px);
+        }
+        @media (max-width: $tablet) {
+          font-size: 14px;
+        }
+        @media (max-width: $phone-wide) {
+          width: calc(100% - 72px);
+        }
+      }
+    }
+    
+    .block-text {
+      font-size: 18px;
+      @include fw();
+      @include lh();
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      transition: all .3s linear;
+      @media (max-width: $desktop) {
+        font-size: 16px;
+      }
+      @media (max-width: $ipad) {
+        font-size: 15px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+    }
+    
+    .block-link {
+      position: relative;
+      @media (max-width: $wide-screen) {
+        font-size: 15px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+    
+    &:hover {
+      box-shadow: -5px -5px 10px rgba(6, 94, 71, 0.07), 5px 5px 10px rgba(6, 94, 71, 0.2);
+      
+      &::before {
+        height: 110%;
+      }
+  
+      &::after {
+        opacity: .5;
+        transition: opacity 1s .2s;
+      }
+      
+      .block-icon {
+        background: rgba(99, 159, 171, 0.2);
+      }
+      
+      .block-title {
+        color: $color-white;
+      }
+      
+      .block-text {
+        color: $color-white;
+      }
+      
+      .block-link {
+        color: $color-white;
+        
+        .arrow-icon {
+          transform: translate3d(5px, 0, 0);
+          stroke: $bg-green-hover;
+          
+          path {
+            position: relative;
+            transform: translateX(3px);
+          }
+        }
+        
+        .arrow-icon--circle {
+          transition: stroke-dashoffset .5s ease;
+          stroke: $bg-green-hover;
+          stroke-dasharray: 20;
+          stroke-dashoffset: 2;
+        }
+        
+        &::before {
+          width: 25%;
+          background: $bg-green-hover;
+        }
+      }
+    }
+  }
+  
+}

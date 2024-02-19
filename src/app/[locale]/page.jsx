@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import SEO from "@/components/SEO";
+import BlocksWP from "@/components/BlockWP";
 
 export default function Home() {
   const t = useTranslations('Index');
@@ -7,10 +8,7 @@ export default function Home() {
   return (
     <>
       <SEO urlEN={'/en'} urlUA={'/ua/golovna'}/>
-      
-      <div className="container">
-        <h1>{t('title')}</h1>
-      </div>
+      {BlocksWP('/pages/5','/pages/247')}
     </>
   );
 }

@@ -6,7 +6,6 @@ export default async function SEO( {urlEN, urlUA} ) {
   let setSeoAPI = [];
   const lang = useLocale();
   let page;
-  console.log(lang)
   
   switch (lang) {
     case 'en': {
@@ -22,8 +21,6 @@ export default async function SEO( {urlEN, urlUA} ) {
   await apiWP.getSEO(page).then(( result ) => {
     setSeoAPI.push(result.data.head);
   });
-  
-  console.log(setSeoAPI)
 
   return parse(setSeoAPI.toString());
 }

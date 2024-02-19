@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { CSSTransition } from "react-transition-group";
 import Image from 'next/image';
-import svgIcon from '@/public/svg/plus.svg';
 import { useWindowSize } from "../../windowSize";
 
 const Spoiler = ( {index, onClick, classes, content, title, number} ) => {
@@ -43,7 +42,7 @@ const Spoiler = ( {index, onClick, classes, content, title, number} ) => {
           onClick={handleClick} ref={spoilerHead}>
           <div className="spoiler-icon">
             <Image
-              src={svgIcon}
+              src={''}
               alt="My SVG"
             />
           </div>

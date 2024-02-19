@@ -1,0 +1,222 @@
+.contacts__info, .contacts__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contacts {
+  width: 100%;
+  margin: 120px 0;
+  position: relative;
+  z-index: 10;
+}
+@media (max-width: 1600px) {
+  .contacts {
+    overflow: hidden;
+    background-color: #14213d;
+    border-radius: 50px;
+    width: calc(100% - 40px);
+    margin: 100px auto;
+  }
+}
+@media (max-width: 1359px) {
+  .contacts {
+    width: 100%;
+    border-radius: 0;
+    margin: 0 auto;
+  }
+}
+.contacts__wrap {
+  width: 100%;
+  justify-content: space-between;
+  padding: 100px 120px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  background-color: #14213d;
+}
+@media (max-width: 1600px) {
+  .contacts__wrap {
+    padding: 100px 0;
+    overflow: visible;
+    border-radius: 0;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__wrap {
+    padding: 80px 0;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 639px) {
+  .contacts__wrap {
+    padding: 60px 0;
+  }
+}
+.contacts__wrap::before {
+  content: "";
+  position: absolute;
+  top: 80px;
+  width: 480px;
+  height: 480px;
+  opacity: 0.5;
+  left: -100px;
+  animation: ellipseOne 14s linear infinite;
+  background-image: url("../../../../assets/img/ellipse.webp");
+  background-size: cover;
+}
+@media (max-width: 1600px) {
+  .contacts__wrap::before {
+    left: -180px;
+  }
+}
+@media (max-width: 1199px) {
+  .contacts__wrap::before {
+    left: -180px;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__wrap::before {
+    left: -100px;
+    width: 380px;
+    height: 380px;
+  }
+}
+@media (max-width: 639px) {
+  .contacts__wrap::before {
+    width: 240px;
+    height: 240px;
+  }
+}
+.contacts__wrap::after {
+  content: "";
+  position: absolute;
+  left: 100px;
+  bottom: 80px;
+  width: 397px;
+  height: 397px;
+  animation: ellipseSecond 14s linear infinite;
+  background-image: url("../../../../assets/img/ellipse.webp");
+  background-size: cover;
+  opacity: 0.3;
+}
+@media (max-width: 1600px) {
+  .contacts__wrap::after {
+    left: 10px;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__wrap::after {
+    left: auto;
+    right: -100px;
+    width: 380px;
+    height: 380px;
+  }
+}
+@media (max-width: 639px) {
+  .contacts__wrap::after {
+    width: 240px;
+    height: 240px;
+  }
+}
+.contacts__info {
+  width: 500px;
+  flex-flow: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1600px) {
+  .contacts__info {
+    width: 480px;
+  }
+}
+@media (max-width: 1199px) {
+  .contacts__info {
+    width: 420px;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__info {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+.contacts__info-title {
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  color: #FFFFFF;
+}
+@media (max-width: 1600px) {
+  .contacts__info-title {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__info-title {
+    margin-bottom: 40px;
+  }
+}
+.contacts__info-text {
+  color: #FFFFFF;
+}
+@media (max-width: 1023px) {
+  .contacts__info-social {
+    display: none;
+  }
+}
+.contacts__info-social .social-caption {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+@media (max-width: 1600px) {
+  .contacts__info-social .social-caption {
+    font-size: 15px;
+  }
+}
+.contacts__form {
+  width: 574px;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1600px) {
+  .contacts__form {
+    width: 540px;
+  }
+}
+@media (max-width: 1199px) {
+  .contacts__form {
+    width: 480px;
+  }
+}
+@media (max-width: 1023px) {
+  .contacts__form {
+    width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .contacts__form {
+    width: 100%;
+  }
+}
+.contacts .contact-form_block input:not([type=submit]):focus, .contacts .contact-form_block textarea:focus, .contacts .contact-form_block input:focus {
+  border: 1px solid #F2F2F2;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*# sourceMappingURL=contacts.css.map */

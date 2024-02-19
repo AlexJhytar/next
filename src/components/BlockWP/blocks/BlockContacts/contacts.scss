@@ -1,0 +1,189 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.contacts {
+  width: 100%;
+  margin: 120px 0;
+  position: relative;
+  z-index: 10;
+  @media (max-width: $wide-screen) {
+    overflow: hidden;
+    background-color: $bg-dark-blue;
+    border-radius: 50px;
+    width: calc(100% - 40px);
+    margin: 100px auto;
+  }
+  @media (max-width: $desktop-wide) {
+    width: 100%;
+    border-radius: 0;
+    margin: 0 auto;
+  }
+  
+  &__wrap {
+    width: 100%;
+    @extend %flex;
+    justify-content: space-between;
+    padding: 100px 120px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    background-color: $bg-dark-blue;
+    @media (max-width: $wide-screen) {
+      padding: 100px 0;
+      overflow: visible;
+      border-radius: 0;
+    }
+    @media (max-width: $ipad) {
+      padding: 80px 0;
+      flex-wrap: wrap;
+    }
+    @media (max-width: $phone-wide) {
+      padding: 60px 0;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      width: 480px;
+      height: 480px;
+      opacity: .5;
+      left: -100px;
+      animation: ellipseOne 14s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      @media (max-width: $wide-screen) {
+        left: -180px;
+      }
+      @media (max-width: $desktop) {
+        left: -180px;
+      }
+      @media (max-width: $ipad) {
+        left: -100px;
+        width: 380px;
+        height: 380px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 240px;
+        height: 240px;
+      }
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100px;
+      bottom: 80px;
+      width: 397px;
+      height: 397px;
+      animation: ellipseSecond 14s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;;
+      opacity: .3;
+      @media (max-width: $wide-screen) {
+        left: 10px;
+      }
+      @media (max-width: $ipad) {
+        left: auto;
+        right:  -100px;
+        width: 380px;
+        height: 380px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 240px;
+        height: 240px;
+      }
+    }
+  }
+  
+  &__info {
+    width: 500px;
+    @extend %flex;
+    flex-flow: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    @media (max-width: $wide-screen) {
+      width: 480px;
+    }
+    @media (max-width: $desktop) {
+      width: 420px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    &-title {
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      color: $color-white;
+      @media (max-width: $wide-screen) {
+        margin-bottom: 50px;
+      }
+      @media (max-width: $ipad) {
+        margin-bottom: 40px;
+      }
+    }
+    
+    &-text {
+      color: $color-white;
+    }
+    
+    &-social {
+      @media (max-width: $ipad) {
+        display: none;
+      }
+      
+      .social-caption {
+        @include fw();
+        font-size: 16px;
+        @include lh();
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: $color-white;
+        @media (max-width: $wide-screen) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  
+  &__form {
+    width: 574px;
+    position: relative;
+    z-index: 1;
+    
+    @media (max-width: $wide-screen) {
+      width: 540px;
+    }
+    @media (max-width: $desktop) {
+      width: 480px;
+    }
+    @media (max-width: $ipad) {
+      width: 80%;
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+  }
+  
+  .contact-form_block {
+    input:not([type=submit]), textarea, input {
+      &:focus {
+        border: 1px solid $bg-gray;
+      }
+    }
+  }
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

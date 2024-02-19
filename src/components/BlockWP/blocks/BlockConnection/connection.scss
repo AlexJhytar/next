@@ -1,0 +1,265 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.connection {
+  width: 100%;
+  background: rgba(99, 159, 171, 0.07);
+  padding: 100px 0;
+  @media (max-width: $ipad) {
+    padding: 80px 0;
+  }
+  @media (max-width: $phone-wide) {
+    padding: 60px 0;
+  }
+  
+  &__wrap {
+    @extend %flex;
+    justify-content: space-between;
+    @media (max-width: $ipad) {
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+  }
+  
+  &__info {
+    width: 547px;
+    @media (max-width: $wide-screen) {
+      width: 440px;
+    }
+    @media (max-width: $desktop) {
+      width: 400px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+    }
+    
+    &-text {
+      margin-top: 60px;
+      @include fw();
+      @include lh();
+      font-size: 18px;
+      @media (max-width: $desktop) {
+        font-size: 16px;
+      }
+      @media (max-width: $ipad) {
+        font-size: 15px;
+        margin-top: 40px;
+      }
+      @media (max-width: $phone-wide) {
+        font-size: 14px;
+      }
+    }
+    
+    &-links {
+      margin-top: 60px;
+      @extend %flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      @media (max-width: $wide-screen) {
+        flex-flow: column;
+      }
+      @media (max-width: $ipad) {
+        margin-top: 40px;
+      }
+  
+      .link-phone, .link-mail {
+        width: calc(50% - 15px);
+        @media (max-width: $wide-screen) {
+          width: 100%;
+        }
+        
+        a {
+          display: inline-block;
+          position: relative;
+          font-size: 18px;
+          @include fw();
+          @include lh();
+          padding-left: 44px;
+          @media (max-width: $wide-screen) {
+            font-size: 17px;
+          }
+          @media (max-width: $desktop) {
+            font-size: 16px;
+          }
+          @media (max-width: $ipad) {
+            font-size: 15px;
+          }
+          @media (max-width: $phone-wide) {
+            font-size: 14px;
+          }
+          
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+          }
+          
+          &:hover {
+            color: $color-green;
+          }
+        }
+      }
+      
+      .link-phone {
+        a {
+          &::before {
+            width: 24px;
+            height: 24px;
+            top: 0;
+            background-image: url("../../../../../src/img/icons/phone-green.svg");
+            background-size: cover;
+            @media (max-width: $ipad) {
+              width: 22px;
+              height: 22px;
+            }
+          }
+        }
+      }
+      
+      .link-mail {
+        a {
+          &::before {
+            width: 24px;
+            height: 20px;
+            top: 2px;
+            background-image: url("../../../../../src/img/icons/mail-green.svg");
+            background-size: cover;
+            @media (max-width: $wide-screen) {
+              top: 1px;
+            }
+            @media (max-width: $ipad) {
+              width: 22px;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &__social {
+    width: 700px;
+    @extend %flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    @media (max-width: $wide-screen) {
+      width: 580px;
+      gap: 18px;
+    }
+    @media (max-width: $desktop) {
+      width: 520px;
+      gap: 16px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+    }
+    @media (max-width: $phone-wide) {
+      gap: 20px;
+    }
+    
+    .social-block {
+      @extend %inline-flex;
+      flex-flow: column;
+      justify-content: center;
+      width: 220px;
+      background-color: $bg-white;
+      box-shadow: 5px 5px 10px rgba(6, 94, 71, 0.07);
+      border-radius: 30px;
+      padding: 30px 40px;
+      gap: 20px;
+      transition: all .5s;
+      @media (max-width: $wide-screen) {
+        width: 280px;
+        padding: 30px 34px;
+      }
+      @media (max-width: $desktop) {
+        width: 252px;
+        padding: 28px 34px;
+      }
+      @media (max-width: $ipad) {
+        width: calc(33.333% - 11px);
+      }
+      @media (max-width: $tablet) {
+        width: calc(50% - 8px);
+      }
+      @media (max-width: $phone-wide) {
+        padding: 24px 40px;
+        width: 100%;
+        gap: 30px;
+        flex-flow: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      @media (max-width: $phone) {
+        padding: 20px 36px;
+      }
+      
+      &__icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        @extend %inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bg-dark;
+        @media (max-width: $desktop) {
+          width: 58px;
+          height: 58px;
+        }
+        @media (max-width: $tablet) {
+          width: 64px;
+          height: 64px;
+        }
+        
+        img {
+          max-width: 24px;
+          max-height: 24px;
+        }
+      }
+      
+      &__name {
+        font-size: 18px;
+        @include fw();
+        @include lh();
+        font-family: $ff_Manrope;
+        text-transform: uppercase;
+        transform: perspective(100px) translateZ(0);
+        backface-visibility: hidden;
+        transition: all .4s;
+        will-change: transform;
+        @media (max-width: $wide-screen) {
+          font-size: 17px;
+        }
+        @media (max-width: $desktop) {
+          font-size: 16px;
+        }
+        @media (max-width: $ipad) {
+          font-size: 15px;
+        }
+        @media (max-width: $phone-wide) {
+          font-size: 14px;
+          line-height: 100%;
+        }
+      }
+      
+      &:hover {
+        transform: perspective(100px) translateY(-3px) translateZ(3px);
+      }
+  
+      &:nth-last-child(-n+3) {
+        background-color: $bg-dark-blue;
+    
+        .social-block {
+          &__icon {
+            background: rgba(99, 159, 171, 0.07);
+          }
+      
+          &__name {
+            color: $color-white;
+          }
+          
+        }
+      }
+    }
+    
+  }
+}

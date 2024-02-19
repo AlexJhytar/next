@@ -1,0 +1,266 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.scroll-project {
+  width: 100%;
+  background-color: rgba(99, 159, 171, 0.07);
+  padding: 100px 0;
+  @media (max-width: $ipad) {
+    padding: 80px 0;
+  }
+  @media (max-width: $tablet) {
+    display: none;
+  }
+  
+  &__head {
+    @extend %flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    gap: 60px;
+    @media (max-width: $wide-screen) {
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: $desktop) {
+      margin-bottom: 40px;
+      gap: 30px;
+    }
+    
+    .page-title {
+      width: 380px;
+      @media (max-width: $wide-screen) {
+        width: 100%;
+      }
+    }
+    
+    .project-nav {
+      width: 778px;
+      @extend %flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      @media (max-width: $wide-screen) {
+        width: 100%;
+      }
+      
+      li {
+        @include fw(500);
+        font-size: 18px;
+        @include lh();
+        padding: 16px 30px 16px 57px;
+        border-radius: 48px;
+        cursor: pointer;
+        transition: background-color .4s, color .4s;
+        position: relative;
+        background-color: transparent;
+        @media (max-width: $wide-screen) {
+          font-size: 16px;
+          padding: 12px 30px 12px 57px;
+        }
+        @media (max-width: $desktop) {
+          font-size: 15px;
+        }
+        @media (max-width: $ipad) {
+          font-size: 13px;
+          padding: 14px 20px 14px 57px;
+        }
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: 30px;
+          top: calc(50% - 8px);
+          width: 14px;
+          height: 14px;
+          background-image: url("../../../../../src/img/icons/tags.svg");
+          background-size: cover;
+          @media (max-width: $wide-screen) {
+            width: 14px;
+            height: 14px;
+            top: calc(50% - 8px);
+          }
+          @media (max-width: $phone-wide) {
+            width: 12px;
+            height: 12px;
+            left: 28px;
+            top: calc(50% - 7px);
+          }
+          @media (max-width: $phone) {
+            width: 11px;
+            height: 11px;
+            left: 24px;
+            top: calc(50% - 7px);
+          }
+        }
+        
+        &:hover {
+          background-color: $bg-white;
+          color: $color-dark;
+        }
+        
+        &.active {
+          background-color: $bg-green;
+          pointer-events: none;
+          color: $color-white;
+          
+          &::before {
+            filter: brightness(20);
+          }
+        }
+      }
+    }
+  }
+  
+  &__wrap {
+    width: 100%;
+    height: 570px;
+    position: relative;
+    @media (max-width: $desktop-wide) {
+      height: 520px;
+    }
+    @media (max-width: $desktop) {
+      height: 440px;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-image: url("../../../../../src/img/mask-left.png");
+      background-size: cover;
+      pointer-events: none;
+      z-index: 2;
+      @media (max-width: $desktop-wide) {
+        width: 32px;
+      }
+      @media (max-width: $desktop) {
+        width: 28px;
+      }
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 39px;
+      height: 100%;
+      right: 54px;
+      top: 0;
+      background-image: url("../../../../../src/img/mask-right.png");
+      background-size: cover;
+      pointer-events: none;
+      z-index: 2;
+      @media (max-width: $wide-screen) {
+        right: 34px;
+      }
+      @media (max-width: $desktop-wide) {
+        width: 35px;
+      }
+      @media (max-width: $desktop) {
+        width: 30px;
+        right: 34px;
+      }
+      @media (max-width: $ipad) {
+        right: 32px;
+      }
+    }
+    
+    .scroll-project-image {
+      width: 100%;
+      overflow-y: auto;
+      height: 100%;
+      padding-right: 50px;
+      display: none;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      @media (max-width: $wide-screen) {
+        padding-right: 30px;
+      }
+      @media (max-width: $desktop) {
+        padding-right: 30px;
+      }
+      
+      &::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+        background-color: #F2F2F2;
+        @media (min-width: 1024px) {
+          width: 4px;
+          height: 4px;
+          background-color: #F2F2F2;
+        }
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: $bg-green;
+        outline: none;
+        border-radius: 5px;
+      }
+      
+      &.breakpoint-1 {
+        
+        .scroll-project-image_wrap {
+          img {
+            width: 100%;
+          }
+        }
+      }
+      
+      &.breakpoint-2 {
+        
+        .scroll-project-image_wrap {
+          img {
+            width: 100%;
+          }
+        }
+      }
+      
+      &.breakpoint-3 {
+        
+        .scroll-project-image_wrap {
+          img {
+            width: 960px;
+          }
+        }
+      }
+      
+      &.breakpoint-4 {
+        
+        .scroll-project-image_wrap {
+          img {
+            width: 480px;
+          }
+        }
+      }
+      
+      &.breakpoint-5 {
+        
+        .scroll-project-image_wrap {
+          img {
+            width: 360px;
+          }
+        }
+      }
+      
+      &.active {
+        display: block;
+      }
+      
+      &_wrap {
+        width: 100%;
+        overflow: hidden;
+        background: $bg-white;
+      }
+      
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,612 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.testimonials {
+  margin: 100px auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50px;
+  width: calc(100% - 40px);
+  @media (max-width: $wide-screen) {
+    background: rgba(99, 159, 171, 0.07);
+  }
+  @media (max-width: $desktop-wide) {
+    background: rgba(99, 159, 171, 0.07);
+    width: 100%;
+    border-radius: 0;
+  }
+  @media (max-width: $ipad) {
+    margin: 0;
+    background-color: $bg-dark-blue;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    border-radius: 0;
+    background-color: $bg-white;
+    z-index: 2;
+    @media (max-width: $wide-screen) {
+      background: $bg-dark-blue;
+    }
+    @media (max-width: $ipad) {
+      content: none;
+    }
+  }
+  
+  &__wrap {
+    @extend %flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 94px 0 80px;
+    @media (max-width: $ipad) {
+      flex-wrap: wrap;
+      padding: 80px 0;
+    }
+    @media (max-width: $phone-wide) {
+      padding: 60px 0;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -74px;
+      top: 0;
+      width: 650px;
+      height: 100%;
+      border-radius: 50px 0 0 50px;
+      background-color: $bg-dark-blue;
+      z-index: 3;
+      @media (max-width: $wide-screen) {
+        width: 560px;
+        border-radius: 0 50px 50px 0;
+      }
+      @media (max-width: $desktop) {
+        width: 500px;
+      }
+      @media (max-width: $ipad) {
+        content: none;
+      }
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -74px;
+      width: 100%;
+      height: 100%;
+      background: rgba(99, 159, 171, 0.07);
+      border-radius: 50px;
+      @media (max-width: $wide-screen) {
+        content: none;
+      }
+    }
+  }
+  
+  .block-tag {
+    color: $color-white;
+  }
+  
+  &__info {
+    width: 500px;
+    @extend %flex;
+    flex-flow: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+    @media (max-width: $wide-screen) {
+      width: 380px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    &-social {
+      z-index: 2;
+    }
+  
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      width: 280px;
+      height: 280px;
+      opacity: .5;
+      left: 0;
+      animation: ellipse 8s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;
+      @media (max-width: $wide-screen) {
+        left: -180px;
+        width: 397px;
+        height: 397px;
+        top: -140px;
+      }
+      @media (max-width: $desktop) {
+        left: -180px;
+        width: 280px;
+        height: 280px;
+      }
+      @media (max-width: $ipad) {
+        right: -100px;
+        left: auto;
+      }
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100px;
+      bottom: -80px;
+      width: 397px;
+      height: 397px;
+      animation: ellipse 7s linear infinite;
+      background-image: url("../../../../../src/img/ellipse.webp");
+      background-size: cover;;
+      opacity: .3;
+      @media (max-width: $wide-screen) {
+        left: 10px;
+      }
+      @media (max-width: $ipad) {
+        content: none;
+      }
+    }
+    
+    &-wrap {
+      @extend %flex;
+      flex-flow: column;
+      justify-content: flex-start;
+    }
+    
+    &-title {
+      margin-bottom: 60px;
+      color: $color-white;
+      @media (max-width: $ipad) {
+        margin-bottom: 40px;
+      }
+    }
+    
+    &-text {
+      @include fw();
+      @include lh();
+      font-size: 18px;
+      color: $color-white;
+      @media (max-width: $wide-screen) {
+        font-size: 16px;
+      }
+      @media (max-width: $desktop) {
+        font-size: 16px;
+      }
+    }
+    
+    &-social {
+      @media (max-width: $ipad) {
+        display: none;
+      }
+      
+      .social-caption {
+        @include fw();
+        font-size: 16px;
+        @include lh();
+        margin-bottom: 20px;
+        color: $color-white;
+        @media (max-width: $wide-screen) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  
+  &__content {
+    width: 900px;
+    position: relative;
+    z-index: 1;
+    @media (max-width: $wide-screen) {
+      width: 660px;
+      padding-left: 50px;
+    }
+    @media (max-width: $desktop) {
+      width: 550px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+      padding-left: 0;
+    }
+    
+    .testimonials-slider {
+      overflow: visible;
+      padding-bottom: 90px;
+      @media (max-width: $phone-wide) {
+        padding-bottom: 120px;
+      }
+      
+      .swiper-wrapper {
+        align-items: initial;
+      }
+      
+      .swiper-pagination-fraction {
+        position: absolute;
+        bottom: 6px;
+        left: 110px;
+        @extend %inline-flex;
+        text-align: left;
+        color: $bg-dark-blue;
+        @include fw();
+        font-size: 18px;
+        @include lh();
+        @media (max-width: $wide-screen) {
+          left: 16px;
+        }
+        @media (max-width: $desktop) {
+          left: 10px;
+          font-size: 16px;
+        }
+        @media (max-width: $ipad) {
+          left: 0;
+          color: $color-white;
+        }
+        @media (max-width: $phone-wide) {
+          font-size: 15px;
+          bottom: 55px;
+          left: 0;
+          text-align: center;
+          width: 100%;
+          display: block;
+        }
+        
+        .swiper-pagination-current {
+          margin-right: 8px;
+        }
+        
+        .swiper-pagination-total {
+          margin-left: 8px;
+        }
+      }
+      
+      .swiper-button-prev, .swiper-button-next {
+        top: auto;
+        bottom: 0;
+        width: 84px;
+        height: 40px;
+        border: 1px solid $bg-green;
+        border-radius: 43px;
+        z-index: 11;
+        transition: all .3s linear;
+        @media (max-width: $desktop) {
+          width: 78px;
+          height: 38px;
+        }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          width: 24px;
+          height: 16px;
+          background-image: url("../../../../../src/img/icons/arrow-black.svg");
+          background-size: cover;
+          transition: all .3s;
+          @media (max-width: $desktop) {
+            width: 22px;
+            height: 14px;
+          }
+          @media (max-width: $ipad) {
+            filter: invert(1);
+          }
+        }
+        
+        &:hover {
+          background-color: $bg-green;
+          
+          &::after {
+            filter: invert(1);
+          }
+        }
+      }
+      
+      .swiper-button-prev {
+        left: auto;
+        right: 96px;
+        @media (max-width: $desktop) {
+          right: 90px;
+        }
+        @media (max-width: $tablet) {
+          right: 88px;
+        }
+        @media (max-width: $phone-wide) {
+          left: 0;
+          margin: 0 auto;
+        }
+      }
+      
+      .swiper-button-next {
+        right: 0;
+        @media (max-width: $phone-wide) {
+          left: 88px;
+          margin: 0 auto;
+        }
+        
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+      
+      .swiper-slide {
+        height: auto;
+        width: 465px;
+        opacity: 0;
+        transition: opacity .7s;
+        @media (max-width: $wide-screen) {
+          width: 440px;
+        }
+        @media (max-width: $desktop) {
+          width: 400px;
+        }
+        @media (max-width: $phone-wide) {
+          width: 100%;
+        }
+        
+        &-prev, &-next {
+          opacity: .3;
+        }
+        
+        &-active {
+          opacity: 1;
+          
+          .testimonials-card {
+            &::before {
+              height: 100%;
+            }
+            
+            &__link {
+              opacity: 1;
+              margin-top: 30px;
+              pointer-events: auto;
+            }
+          }
+        }
+      }
+    }
+    
+    .testimonials-card {
+      width: 100%;
+      height: 100%;
+      padding: 40px 40px 100px;
+      @media (max-width: $desktop) {
+        padding: 34px 34px 100px;
+      }
+      @media (max-width: $phone-wide) {
+        padding: 0;
+        height: auto;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 90%;
+        background-color: $bg-white;
+        border-radius: 30px;
+        box-shadow: -10px -10px 10px rgba(6, 94, 71, 0.07), 10px 10px 10px rgba(6, 94, 71, 0.07);
+        transition: all .5s linear;
+        @media (max-width: $phone-wide) {
+          content: none;
+        }
+      }
+      
+      &__head {
+        @extend %flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 30px;
+        height: auto;
+        @media (max-width: $phone-wide) {
+          flex-wrap: wrap;
+          border-radius: 5px;
+          text-align: center;
+        }
+        
+        .human-image {
+          width: 100px;
+          height: 100px;
+          border-radius: 15px;
+          overflow: hidden;
+          display: block;
+          position: relative;
+          @media (max-width: $desktop) {
+            width: 90px;
+            height: 90px;
+          }
+          @media (max-width: $phone-wide) {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding-bottom: 100%;
+            height: auto;
+          }
+          
+          img {
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+            @media (max-width: $phone-wide) {
+              border-radius: 5px;
+              display: block;
+              width: 100%;
+              height: 100%;
+              max-width: none;
+              max-height: none;
+              object-fit: cover;
+              object-position: 50% 50%;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+        
+        .human-info {
+          width: calc(100% - 130px);
+          @media (max-width: $desktop) {
+            width: calc(100% - 120px);
+          }
+          @media (max-width: $phone-wide) {
+            width: 100%;
+          }
+          
+          &_name {
+            font-size: 20px;
+            @include lh();
+            text-transform: uppercase;
+            font-family: $ff_Manrope;
+            @media (max-width: $wide-screen) {
+              font-size: 18px;
+            }
+            @media (max-width: $desktop) {
+              font-size: 16px;
+            }
+            @media (max-width: $phone-wide) {
+              color: $color-white;
+              font-size: 18px;
+              margin-bottom: 2px;
+            }
+          }
+          
+          &_pos {
+            @include fw();
+            font-size: 18px;
+            @include lh();
+            margin-bottom: 10px;
+            color: $bg-gray1;
+            @media (max-width: $wide-screen) {
+              font-size: 16px;
+            }
+            @media (max-width: $desktop) {
+              font-size: 15px;
+            }
+            @media (max-width: $phone-wide) {
+              font-size: 16px;
+            }
+          }
+          
+          &_rate {
+            img {
+              width: auto;
+            }
+          }
+        }
+      }
+      
+      &__text {
+        @include fw();
+        font-size: 18px;
+        @include lh();
+        position: relative;
+        z-index: 1;
+        @media (max-width: $wide-screen) {
+          font-size: 16px;
+        }
+        @media (max-width: $desktop) {
+          font-size: 16px;
+        }
+        @media (max-width: $ipad) {
+          font-size: 15px;
+        }
+        @media (max-width: $phone-wide) {
+          font-size: 14px;
+          color: $color-white;
+        }
+      }
+      
+      &__link {
+        @include fw(500);
+        font-size: 18px;
+        @include lh();
+        color: $color-green;
+        text-decoration: underline;
+        display: inline-block;
+        pointer-events: none;
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity .7s;
+        @media (max-width: $wide-screen) {
+          font-size: 17px;
+        }
+        @media (max-width: $desktop) {
+          font-size: 16px;
+        }
+        @media (max-width: $ipad) {
+          font-size: 15px;
+        }
+        @media (max-width: $phone-wide) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.page-portfolio, .page-service {
+  @media (max-width: $ipad) {
+    .testimonials {
+      background: rgba(99, 159, 171, 0.07);
+      
+      &__content {
+        .testimonials-slider {
+          .swiper-button-prev::after,.swiper-button-next::after {
+            filter: invert(0);
+          }
+          
+          .swiper-pagination-fraction {
+            color: $color-dark;
+          }
+        }
+      }
+      
+      &__info {
+        &::before {
+          content: none;
+        }
+        
+        &-title {
+          color: $color-dark;
+        }
+        &-text {
+          color: $color-dark;
+        }
+      }
+      
+      .block-tag {
+        color: $color-gray;
+      }
+    }
+  }
+  
+  @media (max-width: $phone-wide) {
+    .testimonials__content {
+      .testimonials-card__head {
+        .human-info_name {
+          color: $color-dark;
+        }
+      }
+      
+      .testimonials-card__text {
+        color: $color-dark;
+      }
+    }
+  }
+  
+}

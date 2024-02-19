@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/abstacts/_style";
+
+.block-tag {
+  @include fw();
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: lowercase;
+  color: $color-gray;
+  margin-bottom: 16px;
+  cursor: default;
+  @media (max-width: $tablet) {
+    font-size: 13px;
+  }
+  @media (max-width: $phone-wide) {
+    font-size: 12px;
+  }
+  
+  [data-theme=dark] & {
+    color: $color-white;
+  }
+}

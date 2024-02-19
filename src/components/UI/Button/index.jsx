@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import svgIcon from '@/public/svg/plus.svg'
 
 const Button = (props) => {
 	 return (

@@ -1,0 +1,264 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.about {
+  width: 100%;
+  background: rgba(99, 159, 171, 0.1);
+  padding: 100px 0;
+  position: relative;
+  min-height: 700px;
+  @media (max-width: $ipad) {
+    padding: 80px 0;
+    min-height: 400px;
+    transition: none;
+  }
+  @media (max-width: $phone-wide) {
+    padding: 60px 0;
+  }
+  
+  &__wrap {
+    @extend %flex;
+    flex-wrap: wrap;
+  }
+  
+  &__content {
+    width: 560px;
+    margin-bottom: 60px;
+    @media (max-width: $desktop) {
+      width: 480px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+    }
+    
+    &-title {
+      margin-bottom: 60px;
+      @media (max-width: $desktop) {
+        margin-bottom: 40px;
+      }
+    }
+    
+    &-text {
+      margin-bottom: 30px;
+      @include fw();
+      font-size: 18px;
+      @include lh();
+      @media (max-width: $wide-screen) {
+        font-size: 17px;
+      }
+      @media (max-width: $desktop-wide) {
+        font-size: 16px;
+      }
+      @media (max-width: $desktop) {
+        font-size: 15px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  &__benefits {
+    width: 1065px;
+    padding: 40px 60px;
+    border-radius: 30px;
+    box-shadow: 0 72px 80px rgba(0, 0, 0, 0.05);
+    background: $bg-dark-blue;
+    @extend %flex;
+    align-content: flex-start;
+    justify-content: space-between;
+    z-index: 1;
+    transition: all 1s ease;
+    will-change: transform;
+    cursor: default;
+    @media (max-width: $desktop-wide) {
+      width: 900px;
+    }
+    @media (max-width: $desktop) {
+      width: 860px;
+      padding: 40px;
+    }
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    @media (max-width: $ipad) {
+      width: 100%;
+      padding: 40px 30px;
+      border-radius: 15px;
+    }
+    @media (max-width: $phone-wide) {
+      flex-wrap: wrap;
+      padding: 40px 24px;
+      transform: none !important;
+      gap: 50px;
+    }
+    
+    &-block {
+      width: 275px;
+      @media (max-width: $desktop-wide) {
+        width: 240px;
+      }
+      @media (max-width: $ipad) {
+        width: 30%;
+      }
+      @media (max-width: $tablet) {
+        width: 45%;
+      }
+      @media (max-width: $phone-wide) {
+        width: 100%;
+        
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+      }
+      
+      .block-caption {
+        @include fw(800);
+        @include lh();
+        font-size: 36px;
+        color: $color-green;
+        text-transform: uppercase;
+        font-family: $ff_Manrope;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 10px $bg-green;
+        animation: textShadow 2s linear infinite;
+        @media (max-width: $desktop-wide) {
+          font-size: 32px;
+        }
+
+      }
+      
+      .block-text {
+        @include fw();
+        font-size: 18px;
+        line-height: 100%;
+        color: $color-white;
+        @media (max-width: $wide-screen) {
+          font-size: 16px;
+        }
+        @media (max-width: $desktop-wide) {
+          font-size: 15px;
+        }
+        @media (max-width: $ipad) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  &__image {
+    width: 640px;
+    height: 580px;
+    position: absolute;
+    @extend %right-abs;
+    border-radius: 30px;
+    top: calc(50% - 290px);
+    @media (max-width: $wide-screen) {
+      width: 600px;
+      height: 540px;
+      top: calc(50% - 270px);
+    }
+    @media (max-width: $desktop-wide) {
+      width: 500px;
+      height: 500px;
+      top: 100px;
+    }
+    @media (max-width: $desktop) {
+      width: 440px;
+      height: 460px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+  }
+  
+  &.style-2 {
+    background: $bg-white;
+    margin: 130px 0 100px;
+    padding: 0;
+    min-height: min-content;
+    @media (max-width: $desktop) {
+      margin: 110px 0 100px;
+    }
+    @media (max-width: $ipad) {
+      margin: 80px 0;
+    }
+    @media (max-width: $phone-wide) {
+      margin: 60px 0;
+    }
+    
+    .about{
+      &__wrap {
+        justify-content: center;
+      }
+      
+      &__content {
+        width: 100%;
+        text-align: center;
+        
+        &-title {
+          margin-bottom: 0;
+        }
+      }
+  
+      &__benefits {
+        width: 960px;
+        padding: 0;
+        box-shadow: none;
+        background: transparent;
+        gap: 100px;
+        @media (max-width: $desktop) {
+          gap: 60px;
+          width: 800px;
+        }
+        @media (max-width: $ipad) {
+          gap: 40px;
+          width: 100%;
+          max-width: 600px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        &-block {
+          text-align: center;
+          width: auto;
+          min-width: 165px;
+          @media (max-width: $ipad) {
+            width: 200px;
+          }
+    
+          .block-caption {
+            font-size: 32px;
+            @media (max-width: $desktop) {
+              font-size: 30px;
+            }
+            @media (max-width: $phone-wide) {
+              font-size: 24px;
+            }
+          }
+          
+          .block-text {
+            color: $color-dark;
+            @include lh();
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 2px 2px 10px $bg-green;
+  }
+  50% {
+    text-shadow: 2px 2px 10px transparent;
+  }
+  100% {
+    text-shadow: 2px 2px 10px $bg-green;
+  }
+}

@@ -1,0 +1,107 @@
+@import "../../../../assets/styles/abstacts/_style";
+
+.clients {
+  width: 100%;
+  margin: 130px 0;
+  opacity: 1;
+  transition: all 1s;
+  min-height: 45px;
+  @media (max-width: $wide-screen) {
+    margin: 110px 0;
+  }
+  @media (max-width: $desktop-wide) {
+    margin: 100px 0;
+  }
+  @media (max-width: $ipad) {
+    margin: 90px 0;
+  }
+  @media (max-width: $tablet) {
+    margin: 80px 0;
+  }
+  
+  .page-home & {
+    margin-top: 50px;
+    display: none;
+  }
+  
+  &.loading {
+    opacity: 0;
+  }
+  
+  &-slider {
+    height: 45px;
+    position: relative;
+    overflow: visible;
+    
+    
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 150px;
+      height: 100%;
+      z-index: 10;
+      @media (max-width: $ipad) {
+        width: 100px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 50px;
+      }
+      @media (max-width: $phone) {
+        width: 30px;
+      }
+    }
+    
+    &::before {
+      left: 0;
+      background: -moz-linear-gradient(right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+      background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+    }
+    
+    &::after {
+      right: 0;
+      background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+      background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .6), rgba(255, 255, 255, .99), rgba(255, 255, 255, 1));
+    }
+    
+    //.swiper-wrapper {
+    //  transition-timing-function: linear !important;
+    //}
+    
+    .swiper-slide {
+      text-align: center;
+    }
+    
+    a {
+      &:hover {
+        .clients-image {
+          transform: scale(1.05);
+          
+          img {
+            filter: grayscale(0);
+          }
+        }
+      }
+    }
+    
+    .clients-image {
+      text-align: center;
+      transition: transform .5s;
+      @extend %inline-flex;
+      align-items: center;
+      justify-content: center;
+      
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+        filter: grayscale(1);
+        transition: all .5s;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}

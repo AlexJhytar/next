@@ -1,0 +1,126 @@
+@import "../../../../../src/styles/abstacts/_style";
+
+.block-stats {
+  width: 100%;
+  padding: 0 0 150px;
+  background-color: $bg-dark-blue;
+  @media (max-width: $desktop-wide) {
+    padding: 0 0 120px;
+  }
+  @media (max-width: $ipad) {
+    padding: 0 0 80px;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  &__wrap {
+    @extend %inline-flex;
+    align-items: initial;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    @media (max-width: $desktop) {
+      gap: 16px;
+    }
+    @media (max-width: $ipad) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    @media (max-width: $phone) {
+      gap: 10px;
+    }
+  }
+  
+  &__item {
+    background-color: rgba(99, 159, 171, 0.07);
+    width: 340px;
+    padding: 30px 30px 30px;
+    box-shadow: 5px 5px 27px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    opacity: 0;
+    transform: translateY(10px);
+    @media (max-width: $wide-screen) {
+      width: 295px;
+      padding: 30px 24px 30px;
+    }
+    @media (max-width: $desktop-wide) {
+      width: 265px;
+    }
+    @media (max-width: $desktop) {
+      width: 228px;
+      padding: 24px 20px 24px;
+      border-radius: 20px;
+    }
+    @media (max-width: $ipad) {
+      width: calc(50% - 6px);
+      padding: 30px 16px 30px;
+    }
+    @media (max-width: $phone-wide) {
+      width: calc(50% - 6px);
+      padding: 30px 16px 30px;
+    }
+    @media (max-width: 560px) {
+      width: 100%;
+    }
+    @media (max-width: $phone) {
+      padding: 30px 16px 30px;
+    }
+  
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        .in-view & {
+          opacity: 1;
+          transition: opacity 1s 0s + ($i / 5), transform 1s 0s + ($i / 5);
+          transform: translateY(0);
+        }
+      }
+    }
+    
+    .item-caption {
+      font-size: 36px;
+      text-transform: uppercase;
+      @include fw(800);
+      @include lh();
+      font-family: $ff_Manrope;
+      color: $color-white;
+      margin-bottom: 20px;
+      @media (max-width: $desktop-wide) {
+        font-size: 32px;
+      }
+      
+      span {
+        font-size: 24px;
+        text-transform: none;
+        color: $color-green;
+        margin-left: 5px;
+        @media (max-width: $desktop-wide) {
+          font-size: 22px;
+        }
+        @media (max-width: $phone-wide) {
+          margin-left: 0;
+          font-size: 20px;
+        }
+      }
+    }
+    
+    .item-text {
+      @include fw();
+      @include lh();
+      font-size: 18px;
+      color: $color-white;
+      @media (max-width: $wide-screen) {
+        font-size: 18px;
+      }
+      @media (max-width: $desktop-wide) {
+        font-size: 15px;
+      }
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+  }
+}
