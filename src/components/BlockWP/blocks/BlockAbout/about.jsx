@@ -7,7 +7,6 @@ import { useLocale } from "next-intl";
 export function BlockAbout( getBlock ) {
   const lang = useLocale();
   const block = getBlock;
-  
   const attrs = [];
   
   if (getBlock[0].data.style_select === 'style-1') {
