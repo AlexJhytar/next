@@ -1,11 +1,10 @@
 import { apiWP } from "@/api";
-import { BlockWP } from "../BlockWP/importBlocks";
+import { blockGutenberg } from "../BlockWP/importBlocks";
 import { useLocale } from "next-intl";
 
 export default async function BlocksWP( idEN, idUA ) {
   const blocks = await getData(idEN, idUA).then(res => res[0]);
-  
-  return BlockWP(blocks);
+  return blockGutenberg(blocks);
 };
 
 async function getData( idEN, idUA ) {

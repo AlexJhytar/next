@@ -4,7 +4,7 @@ import Links from "../../../UI/Links";
 // import { AboutBenefits } from "./aboutBenefits";
 import { useLocale } from "next-intl";
 
-export function BlockAbout( getBlock ) {
+export function blockAbout( getBlock ) {
   const lang = useLocale();
   const block = getBlock;
   const attrs = [];

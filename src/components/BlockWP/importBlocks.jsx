@@ -1,30 +1,76 @@
-import { BlockAbout } from "../BlockWP/blocks/BlockAbout/about";
+import { blockAbout } from "@/components/BlockWP/blocks/BlockAbout/about";
+import { blockClients } from "@/components/BlockWP/blocks/BlockClients/clients";
+import { blockDevelopment } from "@/components/BlockWP/blocks/BlockDevelopment/development";
 
-export function BlockWP( listBlocks ) {
-  
+// import BlockFaq from "../BlockWP/blocks/BlockFAQ/faq";
+// import BlockCreation from "../BlockWP/blocks/BlockCreation/creation";
+// import BlockServices from "../BlockWP/blocks/BlockServices/services";
+// import BlockProcess from "../BlockWP/blocks/BlockProcess/process";
+// import BlockTeam from "../BlockWP/blocks/BlockTeam/team";
+// import BlockProjects from "../BlockWP/blocks/BlockProjects/projects";
+// import BlockContacts from "../BlockWP/blocks/BlockContacts/contacts";
+// import BlockHeading from "../BlockWP/blocks/BlockHeading/heading";
+// import BlockParagraph from "../BlockWP/blocks/BlockParagraph/paragraph";
+// import BlockAdvantages from "../BlockWP/blocks/BlockAdvantages/advantages";
+// import BlockTestimonials from "../BlockWP/blocks/BlockTestimonials/testimonials";
+// import BlockStats from "./blocks/BlockStats/stats";
+// import BlockServicesTwo from "./blocks/BlockServicesTwo/servicesTwo";
+// import BlockTools from "./blocks/BlockTools/tools";
+// import BlockQuote from "./blocks/BlockQuote/quote";
+// import BlockConnection from "./blocks/BlockConnection/connection";
+// import BlockStandards from "./blocks/BlockStandards/standards";
+// import BlockContent from "./blocks/BlockContent/content";
+// import BlockContactProject from "./blocks/BlockContactProject/blockContactProject";
+// import BlockHistory from "./blocks/BlockHistory/history";
+// import BlockProjectInfo from "./blocks/BlockProjectInfo/projectInfo";
+// import BlockProjectDescription from "./blocks/BlockProjectDescription/projectDescription";
+// import BlockResult from "./blocks/BlockResult/blockResult";
+// import BlockScrollProject from "./blocks/BlockScrollProject/scrollProject";
+// import BlockProjectInformation from "./blocks/BlockProjectInformation/projectInformation";
+// import BlockSolution from "./blocks/BlockSolutions/solution";
+// import BlockProjectGallery from "./blocks/BlockProjectGallery/projectGallery";
+
+export function blockGutenberg( listBlocks ) {
   let block = [];
-  let about, development, creation, faq, clients, services, process, team, project, contacts,
-    advantages, heading, paragraph, testimonials, stats, servicesTwo, tools,
-    quote, connection, standards, content, contactPage, history, projectInfo, projectDescription,
-    blockResult, projectInformation, gallery, solutions, scrollProject = false;
-  
-  listBlocks.map(( item ) => {
-    if (item.blockName === 'acf/blocksolutions') {
-      solutions = true;
-      block.push({
-        title: item.attrs.data.solutions_title || '',
-        tag: item.attrs.data.solutions_tag || '',
-        list: item.list
-      });
+  return listBlocks.map(( item ) => {
+    
+    block.length = 0;
+    switch (item.blockName) {
+      // case 'acf/blocksolutions': {
+      //   block.push({
+      //     title: item.attrs.data.solutions_title || '',
+      //     tag: item.attrs.data.solutions_tag || '',
+      //     list: item.list
+      //   });
+      //   break;
+      // }
+      case 'acf/blockabout': {
+        block.push({
+          data: item.attrs.data || '',
+          list: item.list
+        });
+        return blockAbout(block);
+      }
+      case 'acf/blockclients': {
+        block.push(item.list);
+        return blockClients(block);
+      }
+      // case 'acf/blockgallery': {
+      //   block.push({
+      //     list: item.gallery_list
+      //   });
+      //   break;
+      // }
+      case 'acf/blockdevelopment': {
+        block.push({
+          list: item.list
+        });
+        return blockDevelopment(block);
+      }
+      
     }
-    if (item.blockName === 'acf/blockgallery') {
-      gallery = true;
-      block.push({
-        list: item.gallery_list
-      });
-    }
+    
     if (item.blockName === 'acf/blockprojectinformation') {
-      projectInformation = true;
       block.push({
         title: item.attrs.data.project_information_title || '',
         title_2: item.attrs.data.project_information_title_2 || '',
@@ -33,21 +79,7 @@ export function BlockWP( listBlocks ) {
         list: item.list
       });
     }
-    if (item.blockName === 'acf/blockabout') {
-      about = true;
-      block.push({
-        data: item.attrs.data || '',
-        list: item.list
-      });
-    }
-    if (item.blockName === 'acf/blockdevelopment') {
-      development = true;
-      block.push({
-        list: item.list
-      });
-    }
     if (item.blockName === 'acf/blockcreation-') {
-      creation = true;
       block.push({
         tag: item.attrs.data.creation_tag || '',
         title: item.attrs.data.creation_title || '',
@@ -61,19 +93,14 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockfaq') {
-      faq = true;
       block.push({
         tag: item.attrs.data.faq_tag || '',
         title: item.attrs.data.faq_title || '',
         list: item.list
       });
     }
-    if (item.blockName === 'acf/blockclients') {
-      clients = true;
-      block.push(item.list);
-    }
+    
     if (item.blockName === 'acf/blockservices') {
-      services = true;
       block.push({
         list: item.list,
         tag: item.attrs.data.service_tag || '',
@@ -82,7 +109,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockservicesblock') {
-      servicesTwo = true;
       block.push({
         list: item.list,
         tag: item.attrs.data.services_block_tag || '',
@@ -90,7 +116,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockprocess') {
-      process = true;
       block.push({
         tag: item.attrs.data.tag_pocces || '',
         title: item.attrs.data.title_pocces || '',
@@ -98,7 +123,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockslider') {
-      team = true;
       block.push({
         tag: item.attrs.data.team_tag || '',
         title: item.attrs.data.team_title || '',
@@ -108,7 +132,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockprojects') {
-      project = true;
       block.push({
         tag: item.attrs.data.projects_tag || '',
         title: item.attrs.data.projects_title || '',
@@ -116,7 +139,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockcontacts') {
-      contacts = true;
       block.push({
         tag: item.attrs.data.contacts_tag || '',
         title: item.attrs.data.contacts_title || '',
@@ -129,19 +151,16 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'core/heading') {
-      heading = true;
       block.push({
         content: item.rendered || '',
       });
     }
     if (item.blockName === 'core/paragraph') {
-      paragraph = true;
       block.push({
         content: item.rendered || '',
       });
     }
     if (item.blockName === 'acf/blockadvantages') {
-      advantages = true;
       block.push({
         tag: item.attrs.data.advantages_tag || '',
         title: item.attrs.data.advantages_title || '',
@@ -150,7 +169,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blocktestimonials') {
-      testimonials = true;
       block.push({
         tag: item.attrs.data.testimonials_tag || '',
         title: item.attrs.data.testimonials_title || '',
@@ -160,13 +178,11 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockstats') {
-      stats = true;
       block.push({
         list: item.list || '',
       });
     }
     if (item.blockName === 'acf/blocktools') {
-      tools = true;
       block.push({
         tag: item.attrs.data.tools_tag || '',
         title: item.attrs.data.tools_title || '',
@@ -175,7 +191,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockquote') {
-      quote = true;
       block.push({
         name: item.attrs.data.quote_name || '',
         position: item.attrs.data.quote_position || '',
@@ -188,7 +203,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockcontactinformation') {
-      connection = true;
       block.push({
         tag: item.attrs.data.about_tag || '',
         text: item.attrs.data.about_text || '',
@@ -197,7 +211,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockstandarts') {
-      standards = true;
       block.push({
         tag: item.attrs.data.standarts_tag || '',
         text: item.attrs.data.standarts_text || '',
@@ -206,13 +219,11 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockcontent') {
-      content = true;
       block.push({
         list: item.list || '',
       });
     }
     if (item.blockName === 'acf/blockcontactproject') {
-      contactPage = true;
       block.push({
         checkboxLabel: item.attrs.data.chexbox_text_contacts_projects || '',
         title: item.attrs.data.contacts_project_title || '',
@@ -221,7 +232,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockhistory') {
-      history = true;
       block.push({
         tag: item.attrs.data.history_tag || '',
         title: item.attrs.data.history_title || '',
@@ -229,7 +239,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockrecentproject') {
-      projectInfo = true;
       block.push({
         projectDescription: item.attrs.data.project_description || '',
         projectName: item.attrs.data.project_name || '',
@@ -244,7 +253,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockotherproject') {
-      projectDescription = true;
       block.push({
         projectTag: item.attrs.data.tag_other_project || '',
         projectText: item.attrs.data.text_other_project || '',
@@ -254,7 +262,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockresult') {
-      blockResult = true;
       block.push({
         imgURL: item.attrs.data.achievement_image_data.url_full || '',
         imgW: item.attrs.data.achievement_image_data.width || '',
@@ -274,7 +281,6 @@ export function BlockWP( listBlocks ) {
       });
     }
     if (item.blockName === 'acf/blockfavoriteproject') {
-      scrollProject = true;
       block.push({
         tag: item.attrs.data.tag_favourite_project || '',
         text: item.attrs.data.text_favourite_project || '',
@@ -282,8 +288,6 @@ export function BlockWP( listBlocks ) {
         list: item.list
       });
     }
-    return true;
-  })
-
-  return about === true ? BlockAbout(block) : ''
+    
+  });
 }

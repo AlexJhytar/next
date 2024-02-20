@@ -1,4 +1,4 @@
-const Picture = ({src, srcWebp, alt, ...delegated}) => {
+export const Picture = ({src, srcWebp, alt, ...delegated}) => {
 	 return (
 			<picture>
 				 <source srcSet={srcWebp} type="image/webp" />
@@ -7,5 +7,3 @@ const Picture = ({src, srcWebp, alt, ...delegated}) => {
 			</picture>
 	 );
 };
-
-export default Picture;

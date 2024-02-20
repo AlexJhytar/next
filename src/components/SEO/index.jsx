@@ -27,6 +27,5 @@ async function getData( urlEN, urlUA ) {
 
 export default async function SEO( urlEN, urlUA ) {
   let seoHead = await getData(urlEN, urlUA).then(res => res.toString());
-  console.log(seoHead)
   return parse(seoHead);
 }
