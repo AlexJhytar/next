@@ -1,0 +1,234 @@
+.contact-modal__description .contact-form, .contact-modal__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+body.modal-open .header .header__wrap {
+  z-index: 200;
+}
+
+.contact-modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1005;
+  left: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  transform: translateY(-100%) translateZ(0);
+  -webkit-transform: translateY(-100%) translateZ(0);
+  will-change: transform;
+}
+.contact-modal.modal-enter {
+  opacity: 1;
+  transition: all 0.8s;
+  transform: translateY(0) translateZ(0);
+}
+.contact-modal.modal-enter-active {
+  opacity: 1;
+  transition: all 0.8s;
+  transform: translateY(0) translateZ(0);
+}
+.contact-modal.modal-enter-done {
+  opacity: 1;
+  transition: all 0.8s;
+  transform: translateY(0) translateZ(0);
+}
+.contact-modal.modal-exit {
+  opacity: 1;
+  transition: all 0.6s;
+  transform: translateY(100%) translateZ(0);
+}
+.contact-modal.modal-exit-active {
+  opacity: 1;
+  transition: all 0.6s;
+  transform: translateY(100%) translateZ(0);
+}
+.contact-modal__wrap {
+  padding: 80px 60px;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-height: 96.5%;
+  position: relative;
+  overflow-y: auto;
+  align-items: center;
+}
+@media (max-width: 1023px) {
+  .contact-modal__wrap {
+    padding: 70px 40px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-modal__wrap {
+    padding: 70px 30px;
+  }
+}
+@media (max-width: 639px) {
+  .contact-modal__wrap {
+    padding: 60px 24px;
+  }
+}
+@media (max-width: 400px) {
+  .contact-modal__wrap {
+    padding: 60px 20px;
+  }
+}
+@media (max-height: 1000px) {
+  .contact-modal__wrap {
+    align-items: flex-start;
+  }
+}
+.contact-modal__close {
+  position: absolute;
+  top: 0;
+  right: calc((100% - 1000px) / 2);
+  z-index: 1;
+  cursor: pointer;
+  width: 70px;
+  height: 120px;
+  border-radius: 0;
+  transition: all 0.4s;
+  opacity: 1;
+  background: #121212;
+}
+@media (max-width: 1199px) {
+  .contact-modal__close {
+    right: calc((100% - 900px) / 2);
+    height: 100px;
+  }
+}
+@media (max-width: 1023px) {
+  .contact-modal__close {
+    right: 40px;
+    height: 60px;
+    width: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-modal__close {
+    right: 30px;
+  }
+}
+@media (max-width: 639px) {
+  .contact-modal__close {
+    right: 24px;
+  }
+}
+@media (max-width: 400px) {
+  .contact-modal__close {
+    right: 0;
+  }
+}
+.contact-modal__close:after, .contact-modal__close:before {
+  content: "";
+  position: absolute;
+  border-radius: 0;
+  height: 2px;
+  width: 36px;
+  top: calc(50% - 1px);
+  left: calc(50% - 18px);
+  background: #FFFFFF;
+  transition: all 0.5s;
+}
+@media (max-width: 1023px) {
+  .contact-modal__close:after, .contact-modal__close:before {
+    width: 26px;
+    left: calc(50% - 13px);
+  }
+}
+.contact-modal__close:before {
+  transform: rotate(45deg);
+}
+.contact-modal__close:after {
+  transform: rotate(-45deg);
+}
+.contact-modal__close:hover {
+  background: #0BB186;
+}
+.contact-modal__close:hover::before {
+  transform: rotate(-45deg);
+}
+.contact-modal__close:hover::after {
+  transform: rotate(225deg);
+}
+.contact-modal__title {
+  text-transform: uppercase;
+  width: 1000px;
+  margin: 0 auto 40px;
+}
+@media (max-width: 1199px) {
+  .contact-modal__title {
+    width: 50%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 639px) {
+  .contact-modal__title {
+    width: 70%;
+  }
+}
+.contact-modal__title h2 span {
+  color: #0BC594;
+}
+.contact-modal__subtitle {
+  font-weight: 400;
+  line-height: 140%;
+  font-size: 18px;
+  opacity: 0.8;
+  width: 1000px;
+  margin: 0 auto 40px;
+}
+@media (max-width: 1199px) {
+  .contact-modal__subtitle {
+    width: 100%;
+    margin-left: 0;
+    font-size: 16px;
+  }
+}
+@media (max-width: 1023px) {
+  .contact-modal__subtitle {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-modal__subtitle {
+    font-size: 14px;
+  }
+}
+.contact-modal__description {
+  width: 1000px;
+  margin: 0 auto 40px;
+}
+@media (max-width: 1199px) {
+  .contact-modal__description {
+    width: 100%;
+  }
+}
+.contact-modal__description .contact-form {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contact-modal__description .contact-form .block-name, .contact-modal__description .contact-form .block-mail {
+  width: 49%;
+}
+@media (max-width: 639px) {
+  .contact-modal__description .contact-form .block-name, .contact-modal__description .contact-form .block-mail {
+    width: 100%;
+  }
+}
+.contact-modal .container {
+  height: auto;
+}
+@media (max-width: 1023px) {
+  .contact-modal .container {
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=contact-modal.css.map */

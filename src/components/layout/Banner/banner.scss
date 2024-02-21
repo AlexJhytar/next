@@ -1,0 +1,135 @@
+@import '../../../assets/styles/abstacts/_style';
+
+$item: 20;
+
+.banner {
+  width: 100%;
+  @extend %flex;
+  align-items: center;
+  padding: 150px 0 120px;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  background-color: $bg-dark-blue;
+  @media (max-width: $desktop-wide) {
+    padding: 150px 0 80px;
+  }
+  @media (max-width: $ipad) {
+    padding: 90px 0 60px;
+  }
+  @media (max-width: $phone-wide) {
+    padding: 80px 0 60px;
+  }
+  
+  &.loaded {
+    min-height: max-content;
+  }
+  
+  &__wrap {
+    @extend %flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  &__title {
+    font-size: 80px;
+    @include fw(800);
+    @include lh();
+    color: $color-white;
+    font-family: $ff_Manrope;
+    text-transform: uppercase;
+    @media (max-width: $wide-screen) {
+      font-size: 70px;
+    }
+    @media (max-width: $desktop) {
+      font-size: 60px;
+    }
+    @media (max-width: $ipad) {
+      font-size: 52px;
+    }
+    @media (max-width: $tablet) {
+      font-size: 40px;
+    }
+    @media (max-width: $phone) {
+      font-size: 32px;
+    }
+    
+    .title-word {
+      @extend %inline-flex;
+      margin: 0 14px;
+      @media (max-width: $ipad) {
+        margin: 0 12px;
+      }
+      @media (max-width: $phone-wide) {
+        margin: 0 10px;
+      }
+      
+      &:nth-child(2) {
+        .title-letter {
+          @for $i from 1 through $item {
+            &:nth-of-type(2n+#{$i}) {
+              animation-delay: #{($i + 8) * 0.1s};
+            }
+          }
+        }
+      }
+    }
+    
+    .title-letter {
+      display: inline-block;
+      opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+      animation: slideLeft 1.5s forwards;
+      will-change: transform, opacity;
+      @media (max-width: $ipad) {
+        animation: slideLeftMob 1.5s forwards;
+      }
+  
+      @for $i from 1 through $item {
+        &:nth-of-type(2n+#{$i}) {
+          animation-delay: #{($i + 2) * 0.1s};
+        }
+      }
+    }
+  }
+  
+  &__subtitle {
+    @include fw();
+    @include lh();
+    font-size: 16px;
+    width: 891px;
+    position: relative;
+    color: $color-white;
+    opacity: 0;
+    margin-top: 50px;
+    @media (max-width: $desktop) {
+      width: 800px;
+      margin-top: 50px;
+    }
+    @media (max-width: $ipad) {
+      width: 80%;
+      font-size: 15px;
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+    @media (max-width: $phone-wide) {
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    
+    p {
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+    }
+  
+    .loaded & {
+      animation: subTop 1s forwards;
+      animation-delay: .3s;
+    }
+    
+  }
+}

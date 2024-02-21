@@ -1,8 +1,9 @@
 import BlockTag from "../BlockTag/blockTag";
 import './about.scss';
 import Links from "../../../UI/Links";
-// import { AboutBenefits } from "./aboutBenefits";
+import { AboutBenefits } from "./aboutBenefits";
 import { useLocale } from "next-intl";
+import { Picture } from "@/components/UI/Picture";
 
 export function blockAbout( getBlock ) {
   const lang = useLocale();
@@ -48,11 +49,11 @@ export function blockAbout( getBlock ) {
             block[0].data.style_select === 'style-2' ? '' :
               <>
                 <div className="about__content-text">
-                  {/*{item.text}*/}
+                  {getBlock[0].text}
                 </div>
                 
                 <Links url={`/${lang}/about-us`} title="Read about us"
-                       //text={item.textButton}
+                       text={getBlock[0].textButton}
                 />
               </>
           }
@@ -60,12 +61,19 @@ export function blockAbout( getBlock ) {
         
         </div>
         
+        <AboutBenefits content={block[0].list} />
         
         {
           block[0].data.style_select === 'style-2' ? '' :
             <>
               <div className="about__image">
-              
+                <Picture
+                  fallback={attrs[0].imgURL}
+                  src={attrs[0].imgURL}
+                  alt={attrs[0].imgALT}
+                  width={attrs[0].imgWidth}
+                  height={attrs[0].imgHeight}
+                />
               </div>
             </>
         }

@@ -1,4 +1,4 @@
-export function AboutBenefits( content ) {
+export function AboutBenefits( {content} ) {
   
   let arrList = [];
   for (let i = 0; i < content.about_list; i++) {
