@@ -5,7 +5,7 @@ import Links from "../../../UI/Links";
 import './quote.scss';
 import {motion, useInView} from "framer-motion";
 
-const BlockQuote = ({getBlock, pageLoaded}) => {
+const BlockQuote = ({getBlock}) => {
 	 const block = useRef();
 	 const isVisible = useInView(block);
 

@@ -5,7 +5,7 @@ import { AboutBenefits } from "./aboutBenefits";
 import { useLocale } from "next-intl";
 import { Picture } from "@/components/UI/Picture";
 
-export function blockAbout( getBlock ) {
+export default function blockAbout( getBlock ) {
   const lang = useLocale();
   const block = getBlock;
   const attrs = [];
@@ -61,7 +61,7 @@ export function blockAbout( getBlock ) {
         
         </div>
         
-        <AboutBenefits content={block[0].list} />
+        <AboutBenefits content={block[0].list}/>
         
         {
           block[0].data.style_select === 'style-2' ? '' :

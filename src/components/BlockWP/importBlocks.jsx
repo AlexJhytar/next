@@ -1,6 +1,7 @@
-import { blockAbout } from "@/components/BlockWP/blocks/BlockAbout/about";
-import { blockClients } from "@/components/BlockWP/blocks/BlockClients/clients";
-import { blockDevelopment } from "@/components/BlockWP/blocks/BlockDevelopment/development";
+import blockAbout from "@/components/BlockWP/blocks/BlockAbout/about";
+import blockClients from "@/components/BlockWP/blocks/BlockClients/clients";
+import blockDevelopment from "@/components/BlockWP/blocks/BlockDevelopment/development";
+import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
 
 // import BlockFaq from "../BlockWP/blocks/BlockFAQ/faq";
 // import BlockCreation from "../BlockWP/blocks/BlockCreation/creation";
@@ -44,6 +45,16 @@ export function blockGutenberg( listBlocks ) {
       //   });
       //   break;
       // }
+      case 'acf/blockinner': {
+        block.push({
+          title_1: item.attrs.data.title_inner_1 || '',
+          title_2: item.attrs.data.title_inner_2 || '',
+          subtitle: item.attrs.data.text_description_inner || '',
+          list: item.list
+        });
+        
+        return bannerMain(block);
+      }
       case 'acf/blockabout': {
         block.push({
           data: item.attrs.data || '',

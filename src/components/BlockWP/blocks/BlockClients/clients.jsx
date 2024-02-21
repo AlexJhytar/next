@@ -9,7 +9,7 @@ import { useLocale } from "next-intl";
 import 'swiper/swiper-bundle.css';
 import "./clients.scss";
 
-export const blockClients = ( getBlock ) => {
+export default function blockClients( getBlock ) {
   const lang = useLocale();
   
   console.log(getBlock)
@@ -79,65 +79,65 @@ export const blockClients = ( getBlock ) => {
   }
   
   return <div className={`clients`}
-         onMouseEnter={() => pause()}
-         onMouseLeave={() => play()}
-    >
-      
-      {
-        <Swiper{...params} onSwiper={setSwiperRef}>
-          {images.map(( icon, index ) => {
-            return (
-              <SwiperSlide key={index}>
-                {
-                  icon.link !== '' ?
-                    <>
-                      <Link href={`/${lang}${icon.link}`}>
-                        <div className="clients-image">
-                          <img src={icon.url} width={icon.width}
-                               height={icon.height}
-                               alt={icon.alt}/>
-                        </div>
-                      </Link>
-                    </>
-                    :
-                    <>
-                      <div className="clients-image">
-                        <img src={icon.url} width={icon.width} height={icon.height}
-                             alt={icon.alt}/>
-                      </div>
-                    </>
-                }
-              </SwiperSlide>
-            )
-          })}
-          {images.map(( icon, index ) => {
-            return (
-              <SwiperSlide key={index}>
-                {
-                  icon.link !== '' ?
-                    <>
-                      <Link href={`/${lang}${icon.link}`}>
-                        <div className="clients-image">
-                          <img src={icon.url} width={icon.width}
-                               height={icon.height}
-                               alt={icon.alt}/>
-                        </div>
-                      </Link>
-                    </>
-                    :
-                    <>
-                      <div className="clients-image">
-                        <img src={icon.url} width={icon.width} height={icon.height}
-                             alt={icon.alt}/>
-                      </div>
-                    </>
-                }
-              </SwiperSlide>
-            )
-          })}
-        </Swiper>
-      }
+              onMouseEnter={() => pause()}
+              onMouseLeave={() => play()}
+  >
     
-    </div>
-
+    {
+      <Swiper{...params} onSwiper={setSwiperRef}>
+        {images.map(( icon, index ) => {
+          return (
+            <SwiperSlide key={index}>
+              {
+                icon.link !== '' ?
+                  <>
+                    <Link href={`/${lang}${icon.link}`}>
+                      <div className="clients-image">
+                        <img src={icon.url} width={icon.width}
+                             height={icon.height}
+                             alt={icon.alt}/>
+                      </div>
+                    </Link>
+                  </>
+                  :
+                  <>
+                    <div className="clients-image">
+                      <img src={icon.url} width={icon.width} height={icon.height}
+                           alt={icon.alt}/>
+                    </div>
+                  </>
+              }
+            </SwiperSlide>
+          )
+        })}
+        {images.map(( icon, index ) => {
+          return (
+            <SwiperSlide key={index}>
+              {
+                icon.link !== '' ?
+                  <>
+                    <Link href={`/${lang}${icon.link}`}>
+                      <div className="clients-image">
+                        <img src={icon.url} width={icon.width}
+                             height={icon.height}
+                             alt={icon.alt}/>
+                      </div>
+                    </Link>
+                  </>
+                  :
+                  <>
+                    <div className="clients-image">
+                      <img src={icon.url} width={icon.width} height={icon.height}
+                           alt={icon.alt}/>
+                    </div>
+                  </>
+              }
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
+    }
+  
+  </div>
+  
 }

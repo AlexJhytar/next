@@ -2,7 +2,7 @@ import './development.scss';
 import { developmentChildren } from "../../../BlockWP/blocks/BlockDevelopment/developmentChildren";
 import DevelopmentBlock from "../../../BlockWP/blocks/BlockDevelopment/developmentBlock";
 
-export const blockDevelopment = async ( getBlock ) => {
+export default async function blockDevelopment( getBlock ) {
   
   let blockList = [];
   for (let i = 0; i < getBlock[0].list.offers_list; i++) {

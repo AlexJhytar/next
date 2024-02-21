@@ -1,4 +1,4 @@
-import './block-tag.css';
+import './block-tag.scss';
 
 const BlockTag = (props) => {
 	 return (

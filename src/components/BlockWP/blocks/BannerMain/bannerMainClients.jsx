@@ -1,10 +1,9 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import i18n from "../../../i18n";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 const BannerMainClients = ({getList}) => {
 	 let clients = [];
-	 const lang = i18n.language;
+	const lang = useLocale();
 	 for (let i = 0; i < getList.list.our_projects_inner_list; i++) {
 			let index = 'our_projects_inner_list_' + i;
 			const img = index + '_logo_project_inner_image_data';
@@ -18,7 +17,7 @@ const BannerMainClients = ({getList}) => {
 
 	 const clientsList = clients.map((item, index) => {
 			return (
-				 <Link key={index} to={`/${lang}${item.link}`} className="client-block">
+				 <Link key={index} href={`/${lang}${item.link}`} className="client-block">
 						<img src={item.img} width="186" height="45" alt="partner logo" />
 				 </Link>
 			)
