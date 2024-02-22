@@ -1,6 +1,6 @@
 import { apiWP } from "@/api";
 import { blockGutenberg } from "../BlockWP/importBlocks";
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 
 export default async function BlocksWP( idEN, idUA ) {
   const blocks = await getData(idEN, idUA).then(res => res[0]);
@@ -9,7 +9,7 @@ export default async function BlocksWP( idEN, idUA ) {
 
 async function getData( idEN, idUA ) {
   const blocks = [];
-  const lang = useLocale();
+  let lang = await getLocale();
   
   let idPage;
   if (lang === 'en') idPage = idEN;
