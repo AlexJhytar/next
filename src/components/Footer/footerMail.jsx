@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from "next/link";
 
 const FooterMail = ({getList}) => {
 
@@ -15,7 +15,7 @@ const FooterMail = ({getList}) => {
 						mailList.map((item, index) => {
 							 return (
 									<div className="footer__block-mail" key={index}>
-										 <a href={`mailto:${item.mail}`}>{item.mail}</a>
+										 <Link href={`mailto:${item.mail}`}>{item.mail}</Link>
 									</div>
 							 )
 						})

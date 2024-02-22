@@ -11,8 +11,12 @@
     "title": "Contact page"
   },
   "Menu": {
-    "about": "About us",
-    "contacts": "Contacts"
+    "About": "About us",
+    "Contacts": "Contacts",
+    "Services": "Services",
+    "Portfolio": "Portfolio",
+    "Privacy": "Privacy policy",
+    "Terms": "Terms & Conditions"
   },
   "About": {
     "title": "About us",

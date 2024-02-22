@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from "next/link";
 
 const FooterPhone = ({getList}) => {
 
@@ -15,7 +15,7 @@ const FooterPhone = ({getList}) => {
 						phoneList.map((item, index) => {
 							 return (
 									<div className="footer__block-phone" key={index}>
-										 <a href={`tel:${item.phone}`}>{item.phone}</a>
+										 <Link href={`tel:${item.phone}`}>{item.phone}</Link>
 									</div>
 							 )
 						})

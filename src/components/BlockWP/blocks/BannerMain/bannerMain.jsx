@@ -1,19 +1,11 @@
-import BannerMainWords from "./bannerMainWords";
-import Head from "next/head";
-
+import BannerMainWords from "@/components/BlockWP/blocks/BannerMain/bannerMainWords";
 import './banner-main.scss';
+import BannerMainClients from "@/components/BlockWP/blocks/BannerMain/bannerMainClients";
 
 export default function bannerMain( blockBanner ) {
   
   return (
-    
     <>
-      <Head>
-        <link rel="stylesheet" type="text/css" charSet="UTF-8"
-              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
-        <link rel="stylesheet" type="text/css"
-              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
-      </Head>
       <section className={`main-banner true`}>
         <div className="main-banner__wrap">
           <div className="main-banner__content">
@@ -27,10 +19,7 @@ export default function bannerMain( blockBanner ) {
                   <span dangerouslySetInnerHTML={{__html: blockBanner[0].title_2}}/>
                 </h1>
                 
-                
                 <BannerMainWords getWord={blockBanner[0].list}/>
-              
-              
               </div>
               
               <div className="main-banner__subtitle">
@@ -40,7 +29,7 @@ export default function bannerMain( blockBanner ) {
           </div>
           
           
-          {/*<BannerMainClients getList={item} />*/}
+          <BannerMainClients getList={blockBanner[0].list} />
         </div>
       </section>
     </>
