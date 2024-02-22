@@ -13,7 +13,8 @@ export default async function Footer() {
   const data = await getFooterInfo();
   
   const t = await getTranslations('Menu');
-  let lang = useLocale() === 'en' ? '' : useLocale();
+  const language = useLocale();
+  let lang = language === 'en' ? '' : `/${language}`;
   
   return (
     <>
@@ -22,7 +23,7 @@ export default async function Footer() {
           <div className="footer__wrap">
             <div className="footer__block">
               <div className="footer__block-logo">
-                <Link href={`${lang}`}>
+                <Link href={`/`}>
                   <Image src={logo} width="140" height="30" alt="footer artilab logo"/>
                 </Link>
               </div>
@@ -66,8 +67,8 @@ export default async function Footer() {
                 © {year} Artilab, All Rights Reserved.
               </div>
               <div className="footer__bottom-links">
-                <Link href={`${lang}/privacy-policy`}>{t('Privacy')}</Link>
-                <Link href={`${lang}/terms-conditions`}>{t('Terms')}</Link>
+                <Link href={`/${lang}/privacy-policy`}>{t('Privacy')}</Link>
+                <Link href={`/${lang}/terms-conditions`}>{t('Terms')}</Link>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 import { useTranslations } from "next-intl";
 import NavMenu from "@/components/Navigation/NavMenu";
 
