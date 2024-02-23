@@ -2,18 +2,8 @@
 User-agent: *
 Allow: /
 
-# test-bot
-User-agent: test-bot
-Allow: /path
-Allow: /path-2
-
-# black-listed-bot
-User-agent: black-listed-bot
-Disallow: /sub-path-1
-Disallow: /path-2
-
 # Host
-Host: https://next-artilab.vercel.app/
+Host: https://next-artilab.vercel.app
 
 # Sitemaps
 Sitemap: https://next-artilab.vercel.app/sitemap.xml

@@ -4,7 +4,6 @@ export default async function sitemap() {
   const dataPage = await pages();
   
   const urlPages = dataPage.map(item => {
-    console.log(item.slug)
     
     return {
       url: `${process.env.NEXT_PRODUCTION_URL}/${item.slug}`,
@@ -27,7 +26,7 @@ export default async function sitemap() {
 
 async function pages() {
   const blocks = [];
-  await apiWP.link('/pages?lang=en').then(( result ) => {
+  await apiWP.link('/pages').then(( result ) => {
     blocks.push(result.data);
   });
   return blocks[0];
