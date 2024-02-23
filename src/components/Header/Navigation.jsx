@@ -13,7 +13,7 @@ export default async function Navigation( {language} ) {
       link: `${lang}/portfolio`, menu: `${t('Portfolio')}`
     },
     {
-      link: `${lang}/about-us`, menu: `${t('About')}`
+      link: `${lang}/about`, menu: `${t('About')}`
     },
     {
       link: `${lang}/contacts`, menu: `${t('Contacts')}`

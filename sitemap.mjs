@@ -2,10 +2,11 @@ import { writeFileSync } from "fs";
 import axios from "axios";
 import prettier from "prettier";
 
+let api = 'https://api.artilab.pro/wp-json/wp/v2';
+let prod = 'https://next-artilab.vercel.app';
+
 async function generate() {
   const languages = {en: "sitemap-en.xml", ua: "sitemap-ua.xml",};
-  let api = 'https://api.artilab.pro/wp-json/wp/v2';
-  let prod = 'https://next-artilab.vercel.app';
   
   let siteMaps = []
   for (const [lang, sitemapName] of Object.entries(languages)) {
@@ -24,15 +25,14 @@ async function generate() {
         </url>
         
         ${pages.map(( url ) => {
-      return `
+          return `
               <url>
                 <loc>${siteUrl}/${url.slug}</loc>
                 <lastmod>${new Date().toISOString()}</lastmod>
               </url>
             `;
-    }).join("")}
-      </urlset>
-    `;
+           }).join("")}
+        </urlset>`;
     
     let formattedMap = await prettier.format(sitemap, {parser: "html"});
     writeFileSync(`public/${sitemapName}`, formattedMap);
@@ -48,9 +48,8 @@ async function generate() {
             <lastmod>${new Date().toISOString()}</lastmod>
           </sitemap>
         `;
-  }).join("")}
-  </sitemapindex>
-`;
+    }).join("")}
+  </sitemapindex>`;
   
   const formattedMaps = await prettier.format(sitemapIndex, {parser: "html"});
   writeFileSync("public/sitemap.xml", formattedMaps);

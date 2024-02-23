@@ -5,7 +5,7 @@ export default function Home() {
   
   return (
     <>
-      {SEO('/', '/ua/golovna')}
+      {SEO('/services', '/ua/services')}
       {BlocksWP('/pages/5', '/pages/247')}
     </>
   );
