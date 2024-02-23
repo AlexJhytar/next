@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const instance = axios.create({
-	 baseURL: process.env.NEXT_PUBLIC_API_ROOT,
+	 baseURL: process.env.NEXT_API_ARTILAB_ROOT,
 });
 
 const seo = axios.create({
-	 baseURL: process.env.NEXT_PUBLIC_API_SEO,
+	 baseURL: process.env.NEXT_API_ARTILAB_SEO,
 });
 
 export const apiWP = {

@@ -15,6 +15,7 @@
     "@mui/material": "^5.15.10",
     "axios": "^1.6.7",
     "framer-motion": "^11.0.5",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
     "html-react-parser": "^5.1.5",
     "next": "^14.1.0",
@@ -28,6 +29,8 @@
     "swiper": "^11.0.6"
   },
   "devDependencies": {
-    "sass": "^1.70.0"
+    "@types/node": "20.11.20",
+    "sass": "^1.70.0",
+    "typescript": "5.3.3"
   }
 }
