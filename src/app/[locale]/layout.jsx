@@ -12,10 +12,8 @@ export default function RootLayout( {children, params: {locale}} ) {
     <body>
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Header/>
-      <div className="page-wrap">
-        {children}
-      </div>
-      <Footer />
+      {children}
+      <Footer/>
     </NextIntlClientProvider>
     </body>
     </html>
