@@ -38,18 +38,6 @@ export default function Template( {children} ) {
     }
   }
   
-  const slideOut = {
-    initial: {
-      scaleY: 1,
-    },
-    animate: {
-      scaleY: [1, 1, 0],
-    },
-    exit: {
-      scaleY: [1, 1, 0],
-    }
-  }
-  
   return (
     <>
       <motion.div
@@ -59,13 +47,8 @@ export default function Template( {children} ) {
       <motion.div
         className="slidePageIn"
         {...anim(slideIn)}
-        transition={{duration: 1.4, ease: [0.22, 1, 0.32, 1]}}
+        transition={{duration: 1.2, type: 'easeIn'}}
       ></motion.div>
-      {/*<motion.div*/}
-      {/*  className="slidePageOut"*/}
-      {/*  {...anim(slideOut)}*/}
-      {/*  transition={{duration: 1, ease: [0.22, 1, 0.54, 1]}}*/}
-      {/*></motion.div>*/}
     </>
   )
 }

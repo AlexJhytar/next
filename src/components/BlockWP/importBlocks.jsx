@@ -31,9 +31,9 @@ import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
 // import BlockSolution from "./blocks/BlockSolutions/solution";
 // import BlockProjectGallery from "./blocks/BlockProjectGallery/projectGallery";
 
-export function blockGutenberg( listBlocks ) {
+export async function blockGutenberg( listBlocks ) {
   let block = [];
-  return listBlocks.map(( item ) => {
+  return await listBlocks.map(( item ) => {
     
     block.length = 0;
     switch (item.blockName) {
