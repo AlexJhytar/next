@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
-const Portfolio = async () => {
-  const t = await getTranslations('Portfolio');
+const Services = async () => {
+  const t = await getTranslations('Services');
   
   return (
     <div className="container">
@@ -10,4 +10,4 @@ const Portfolio = async () => {
   );
 };
 
-export default Portfolio;
+export default Services;

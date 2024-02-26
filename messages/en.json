@@ -7,6 +7,12 @@
   "NotFoundPage": {
     "title": "Page not found"
   },
+  "Portfolio": {
+    "title": "Portfolio page"
+  },
+  "Services": {
+    "title": "Services page"
+  },
   "Contact": {
     "title": "Contact page"
   },
