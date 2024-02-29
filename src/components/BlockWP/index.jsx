@@ -15,8 +15,8 @@ async function getData( idEN, idUA ) {
   if (lang === 'en') idPage = idEN;
   if (lang === 'ua') idPage = idUA;
   
-  await apiWP.link(idPage).then(( result ) => {
-    blocks.push(result.data.block_data);
+  await apiWP.getPages(idPage).then(( result ) => {
+    blocks.push(result.block_data);
   });
   return blocks;
 }

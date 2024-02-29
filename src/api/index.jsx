@@ -14,7 +14,7 @@ export const apiWP = {
 			.then((response) => response)
 	 },
 	 getPages(attributes) {
-			return instance.get(`/pages${attributes}`)
+			return instance.get(`/pages/${attributes}`)
 			.then((response) => response.data)
 	 },
 	 getSEO(url) {

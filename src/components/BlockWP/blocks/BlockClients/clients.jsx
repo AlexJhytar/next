@@ -12,8 +12,6 @@ import "./clients.scss";
 export default function blockClients( getBlock ) {
   const lang = useLocale();
   
-  console.log(getBlock)
-  
   const [swiperRef, setSwiperRef] = useState(null);
   
   const play = () => {

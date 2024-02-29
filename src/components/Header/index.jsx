@@ -1,5 +1,4 @@
 import logo from '@/img/logo-white.svg';
-import Button from "@/components/UI/Button";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
@@ -8,6 +7,7 @@ import ChangeLang from "@/components/Header/ChangeLang";
 import CheckFixedHeader from "@/components/Header/CheckFixedHeader";
 import Navigation from "@/components/Header/Navigation";
 import React from "react";
+import Popup from "@/components/Header/popup";
 
 export default async function Header() {
   const t = await getTranslations('Menu');
@@ -34,12 +34,7 @@ export default async function Header() {
             <div className="header__block">
               <ChangeLang lang={lang}/>
               
-              <Button
-                type="button"
-                class="default"
-                color="green"
-                title={t("Contacts")}
-              />
+              <Popup />
             </div>
           </div>
           

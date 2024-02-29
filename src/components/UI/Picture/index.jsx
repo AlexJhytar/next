@@ -1,4 +1,4 @@
-export const Picture = ({src, srcWebp, alt, ...delegated}) => {
+export default function Picture ({src, srcWebp, alt, ...delegated}) {
 	 return (
 			<picture>
 				 <source srcSet={srcWebp} type="image/webp" />

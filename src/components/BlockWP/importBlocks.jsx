@@ -1,7 +1,8 @@
+import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
 import blockAbout from "@/components/BlockWP/blocks/BlockAbout/about";
 import blockClients from "@/components/BlockWP/blocks/BlockClients/clients";
 import blockDevelopment from "@/components/BlockWP/blocks/BlockDevelopment/development";
-import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
+import blockCreation from "@/components/BlockWP/blocks/BlockCreation/creation";
 
 // import BlockFaq from "../BlockWP/blocks/BlockFAQ/faq";
 // import BlockCreation from "../BlockWP/blocks/BlockCreation/creation";
@@ -33,8 +34,9 @@ import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
 
 export async function blockGutenberg( listBlocks ) {
   let block = [];
+  
   return await listBlocks.map(( item ) => {
-    
+    console.log(item.blockName)
     block.length = 0;
     switch (item.blockName) {
       // case 'acf/blocksolutions': {
@@ -78,8 +80,29 @@ export async function blockGutenberg( listBlocks ) {
         });
         return blockDevelopment(block);
       }
+      case 'acf/blockcreation-': {
+        block.push({
+          tag: item.attrs.data.creation_tag || '',
+          title: item.attrs.data.creation_title || '',
+          text: item.attrs.data.creation_text || '',
+          textButton: item.attrs.data.creation_button || '',
+          info: item.attrs.data.creation_user_info || '',
+          imgURL: item.attrs.data.creation_image_image_data.url_full || '',
+          imgALT: item.attrs.data.creation_image_alt || '',
+          imgWidth: item.attrs.data.creation_image_image_data.width || '',
+          imgHeight: item.attrs.data.creation_image_image_data.height || '',
+        });
+        
+        return blockCreation(block);
+      }
       
     }
+    
+    
+    
+    
+    
+    
     
     if (item.blockName === 'acf/blockprojectinformation') {
       block.push({
@@ -88,19 +111,6 @@ export async function blockGutenberg( listBlocks ) {
         tag: item.attrs.data.project_information_tag || '',
         text: item.attrs.data.project_information_text || '',
         list: item.list
-      });
-    }
-    if (item.blockName === 'acf/blockcreation-') {
-      block.push({
-        tag: item.attrs.data.creation_tag || '',
-        title: item.attrs.data.creation_title || '',
-        text: item.attrs.data.creation_text || '',
-        textButton: item.attrs.data.creation_button || '',
-        info: item.attrs.data.creation_user_info || '',
-        imgURL: item.attrs.data.creation_image_image_data.url_full || '',
-        imgALT: item.attrs.data.creation_image_alt || '',
-        imgWidth: item.attrs.data.creation_image_image_data.width || '',
-        imgHeight: item.attrs.data.creation_image_image_data.height || '',
       });
     }
     if (item.blockName === 'acf/blockfaq') {

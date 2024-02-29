@@ -3,7 +3,7 @@ import './about.scss';
 import Links from "../../../UI/Links";
 import { AboutBenefits } from "./aboutBenefits";
 import { useLocale } from "next-intl";
-import { Picture } from "@/components/UI/Picture";
+import Picture from "@/components/UI/Picture";
 
 export default function blockAbout( getBlock ) {
   const lang = useLocale();

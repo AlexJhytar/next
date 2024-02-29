@@ -1,4 +1,4 @@
-import { Picture } from "@/components/UI/Picture";
+import Picture from "@/components/UI/Picture";
 
 export function developmentChildren( {blockList} ) {
   
