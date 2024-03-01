@@ -19,11 +19,11 @@ const FaqItems = ( {list} ) => {
         {
           x: 200,
           duration: 1,
-          ease: "elastic",
+          ease: "none",
           scrollTrigger: {
             trigger: listItem[i],
             start: "top top",
-            end: "bottom top",
+            end: "top top",
             scrub: true
           }
         }
