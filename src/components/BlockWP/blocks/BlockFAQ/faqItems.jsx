@@ -1,35 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Spoiler from "@/components/UI/Spoiler/spoiler";
-import { gsap } from "gsap";
 
 const FaqItems = ( {list} ) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  
-  useEffect(() => {
-    let listItem = gsap.utils.toArray(".spoiler");
-    
-    for (let i = 0; i < listItem.length; i++) {
-      gsap.fromTo(
-        listItem[i],
-        {
-          x: 0,
-        },
-        {
-          x: 200,
-          duration: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: listItem[i],
-            start: "top top",
-            end: "top top",
-            scrub: true
-          }
-        }
-      );
-    }
-  }, []);
   
   return list.map(( info, index ) => {
     const showTab = index === activeIndex ? "active" : "";
