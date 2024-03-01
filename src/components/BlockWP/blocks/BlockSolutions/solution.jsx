@@ -1,8 +1,7 @@
-import React from 'react';
 import BlockTag from "../BlockTag/blockTag";
-import './solutions.css';
+import './solutions.scss';
 
-const BlockSolution = ({getBlock}) => {
+export default function blockSolution(getBlock) {
 
 	 const block = [];
 	 for (let i = 0; i < getBlock[0].list.solutions_information_list; i++) {
@@ -40,5 +39,3 @@ const BlockSolution = ({getBlock}) => {
 			</section>
 	 );
 };
-
-export default BlockSolution;

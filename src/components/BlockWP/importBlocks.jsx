@@ -3,34 +3,8 @@ import blockAbout from "@/components/BlockWP/blocks/BlockAbout/about";
 import blockClients from "@/components/BlockWP/blocks/BlockClients/clients";
 import blockDevelopment from "@/components/BlockWP/blocks/BlockDevelopment/development";
 import blockCreation from "@/components/BlockWP/blocks/BlockCreation/creation";
-
-// import BlockFaq from "../BlockWP/blocks/BlockFAQ/faq";
-// import BlockCreation from "../BlockWP/blocks/BlockCreation/creation";
-// import BlockServices from "../BlockWP/blocks/BlockServices/services";
-// import BlockProcess from "../BlockWP/blocks/BlockProcess/process";
-// import BlockTeam from "../BlockWP/blocks/BlockTeam/team";
-// import BlockProjects from "../BlockWP/blocks/BlockProjects/projects";
-// import BlockContacts from "../BlockWP/blocks/BlockContacts/contacts";
-// import BlockHeading from "../BlockWP/blocks/BlockHeading/heading";
-// import BlockParagraph from "../BlockWP/blocks/BlockParagraph/paragraph";
-// import BlockAdvantages from "../BlockWP/blocks/BlockAdvantages/advantages";
-// import BlockTestimonials from "../BlockWP/blocks/BlockTestimonials/testimonials";
-// import BlockStats from "./blocks/BlockStats/stats";
-// import BlockServicesTwo from "./blocks/BlockServicesTwo/servicesTwo";
-// import BlockTools from "./blocks/BlockTools/tools";
-// import BlockQuote from "./blocks/BlockQuote/quote";
-// import BlockConnection from "./blocks/BlockConnection/connection";
-// import BlockStandards from "./blocks/BlockStandards/standards";
-// import BlockContent from "./blocks/BlockContent/content";
-// import BlockContactProject from "./blocks/BlockContactProject/blockContactProject";
-// import BlockHistory from "./blocks/BlockHistory/history";
-// import BlockProjectInfo from "./blocks/BlockProjectInfo/projectInfo";
-// import BlockProjectDescription from "./blocks/BlockProjectDescription/projectDescription";
-// import BlockResult from "./blocks/BlockResult/blockResult";
-// import BlockScrollProject from "./blocks/BlockScrollProject/scrollProject";
-// import BlockProjectInformation from "./blocks/BlockProjectInformation/projectInformation";
-// import BlockSolution from "./blocks/BlockSolutions/solution";
-// import BlockProjectGallery from "./blocks/BlockProjectGallery/projectGallery";
+import blockSolution from "@/components/BlockWP/blocks/BlockSolutions/solution";
+import blockFaq from "@/components/BlockWP/blocks/BlockFAQ/faq";
 
 export async function blockGutenberg( listBlocks ) {
   let block = [];
@@ -39,14 +13,14 @@ export async function blockGutenberg( listBlocks ) {
     console.log(item.blockName)
     block.length = 0;
     switch (item.blockName) {
-      // case 'acf/blocksolutions': {
-      //   block.push({
-      //     title: item.attrs.data.solutions_title || '',
-      //     tag: item.attrs.data.solutions_tag || '',
-      //     list: item.list
-      //   });
-      //   break;
-      // }
+      case 'acf/blocksolutions': {
+        block.push({
+          title: item.attrs.data.solutions_title || '',
+          tag: item.attrs.data.solutions_tag || '',
+          list: item.list
+        });
+        return blockSolution(block);
+      }
       case 'acf/blockinner': {
         block.push({
           title_1: item.attrs.data.title_inner_1 || '',
@@ -54,13 +28,11 @@ export async function blockGutenberg( listBlocks ) {
           subtitle: item.attrs.data.text_description_inner || '',
           list: item.list
         });
-        
         return bannerMain(block);
       }
       case 'acf/blockabout': {
         block.push({
-          data: item.attrs.data || '',
-          list: item.list
+          data: item.attrs.data || '', list: item.list
         });
         return blockAbout(block);
       }
@@ -92,17 +64,19 @@ export async function blockGutenberg( listBlocks ) {
           imgWidth: item.attrs.data.creation_image_image_data.width || '',
           imgHeight: item.attrs.data.creation_image_image_data.height || '',
         });
-        
         return blockCreation(block);
+      }
+      case 'acf/blockfaq': {
+        block.push({
+          tag: item.attrs.data.faq_tag || '',
+          title: item.attrs.data.faq_title || '',
+          list: item.list
+        });
+        
+        return blockFaq(block);
       }
       
     }
-    
-    
-    
-    
-    
-    
     
     if (item.blockName === 'acf/blockprojectinformation') {
       block.push({
@@ -110,13 +84,6 @@ export async function blockGutenberg( listBlocks ) {
         title_2: item.attrs.data.project_information_title_2 || '',
         tag: item.attrs.data.project_information_tag || '',
         text: item.attrs.data.project_information_text || '',
-        list: item.list
-      });
-    }
-    if (item.blockName === 'acf/blockfaq') {
-      block.push({
-        tag: item.attrs.data.faq_tag || '',
-        title: item.attrs.data.faq_title || '',
         list: item.list
       });
     }

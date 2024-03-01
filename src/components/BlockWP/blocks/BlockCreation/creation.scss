@@ -129,8 +129,8 @@
             color: $color-dark;
           }
       
-          svg {
-            fill: $bg-dark;
+          img {
+            filter: brightness(0);
           }
         }
       }

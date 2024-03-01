@@ -41,10 +41,11 @@ const Spoiler = ( {index, onClick, classes, content, title, number} ) => {
           className="spoiler__head"
           onClick={handleClick} ref={spoilerHead}>
           <div className="spoiler-icon">
-            <Image
-              src={''}
-              alt="My SVG"
-            />
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.08008V27.0801M1 14.0001H27" strokeWidth="1.71429"
+                    strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
           <div className="spoiler__head-title">
             {

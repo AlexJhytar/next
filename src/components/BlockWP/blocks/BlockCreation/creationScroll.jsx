@@ -28,7 +28,7 @@ export default function CreationScroll() {
           y: 0
         },
         {
-          y: -50,
+          y: -200,
           duration: 1,
           ease: "none",
           scrollTrigger: {
