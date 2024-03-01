@@ -19,16 +19,16 @@ export default function CreationScroll() {
   })
   
   useEffect(() => {
-    let listItem = gsap.utils.toArray(".creation");
+    let listItem = gsap.utils.toArray(".creation__image");
     
     listItem.forEach(( section, index ) => {
       gsap.fromTo(
         section,
         {
-          y: 0
+          scale: 1,
         },
         {
-          y: -200,
+          scale: .7,
           duration: 1,
           ease: "none",
           scrollTrigger: {

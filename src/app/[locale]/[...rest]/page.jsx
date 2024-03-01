@@ -9,7 +9,7 @@ export default async function CatchAllPage({params}) {
   let links = [];
   data.map(page => {
     links.push(page.slug)
-    console.log(page.slug)
+    //console.log(page.slug)
   })
   
   if (links.includes(slug)) {

@@ -2,12 +2,13 @@ import './services.scss';
 import BlockTag from "../BlockTag/blockTag";
 import "../../../UI/Links";
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
 
-const BlockServices = ( {getBlock} ) => {
+export default async function blockServices( getBlock ) {
   
-  const lang = i18n.language;
-  
+  const lang = await getLocale();
   const blockService = [];
+  
   for (let i = 0; i < getBlock[0].list.services_list; i++) {
     const item = 'services_list_' + i;
     const textLink = item + "_text_link";
@@ -73,14 +74,10 @@ const BlockServices = ( {getBlock} ) => {
         </div>
         
         <div className="services__wrap">
-          {
-            serviceBox
-          }
+          {serviceBox}
         </div>
       
       </div>
     </section>
-  );
-};
-
-export default BlockServices;
+  )
+}

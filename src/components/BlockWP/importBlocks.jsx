@@ -5,6 +5,7 @@ import blockDevelopment from "@/components/BlockWP/blocks/BlockDevelopment/devel
 import blockCreation from "@/components/BlockWP/blocks/BlockCreation/creation";
 import blockSolution from "@/components/BlockWP/blocks/BlockSolutions/solution";
 import blockFaq from "@/components/BlockWP/blocks/BlockFAQ/faq";
+import blockServices from "@/components/BlockWP/blocks/BlockServices/services";
 
 export async function blockGutenberg( listBlocks ) {
   let block = [];
@@ -76,6 +77,16 @@ export async function blockGutenberg( listBlocks ) {
         return blockFaq(block);
       }
       
+      case'acf/blockservices': {
+        block.push({
+          list: item.list,
+          tag: item.attrs.data.service_tag || '',
+          title: item.attrs.data.service_title || '',
+          text: item.attrs.data.service_text || '',
+        });
+        return blockServices(block);
+      }
+      
     }
     
     if (item.blockName === 'acf/blockprojectinformation') {
@@ -85,15 +96,6 @@ export async function blockGutenberg( listBlocks ) {
         tag: item.attrs.data.project_information_tag || '',
         text: item.attrs.data.project_information_text || '',
         list: item.list
-      });
-    }
-    
-    if (item.blockName === 'acf/blockservices') {
-      block.push({
-        list: item.list,
-        tag: item.attrs.data.service_tag || '',
-        title: item.attrs.data.service_title || '',
-        text: item.attrs.data.service_text || '',
       });
     }
     if (item.blockName === 'acf/blockservicesblock') {
