@@ -1,14 +1,11 @@
-"use client"
-
-import React, {useEffect, useRef} from 'react';
 import Link from "next/link";
 import Button from "../../../UI/Button";
 import ProjectsItems from "./projectsItems";
 import ProjectsImage from "./projectsImage";
-import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { getLocale } from "next-intl/server";
 
-const ProjectsCase = ({template}) => {
+const ProjectsCase = async ({template}) => {
+	const lang = await getLocale();
 
 	 const caseBlock = [];
 	 for (let i = 0; i < template.projects_list; i++) {
@@ -33,58 +30,16 @@ const ProjectsCase = ({template}) => {
 			});
 	 }
 
-	 const ref = useRef(null);
-	 gsap.registerPlugin(ScrollTrigger);
-
-	 useEffect(() => {
-			let listItem = gsap.utils.toArray(".block-portfolio-case");
-
-			listItem.forEach((section, index) => {
-				 gsap.fromTo(
-						section,
-						{
-							 y: 0
-						},
-						{
-							 y: -50,
-							 duration: 1,
-							 ease: "none",
-							 scrollTrigger: {
-									trigger: section,
-									start: "top top",
-									end: "bottom top",
-									scrub: true
-							 }
-						}
-				 );
-			});
-	 })
-
-	 useEffect(() => {
-			let caseItem = gsap.utils.toArray(".block-portfolio-case__wrap");
-			let listItem = gsap.utils.toArray(".block-portfolio-case");
-
-			caseItem.forEach((section, index) => {
-				 ScrollTrigger.create({
-						trigger: section,
-						markers: false,
-						start: 'top bottom',
-						end: 'bottom top',
-						toggleClass: {targets: listItem[index], className: "active"}
-				 });
-			});
-	 })
-
 	 return (
 			<div className="portfolio-inner">
 				 {
 						caseBlock.map((item, i) => {
 							 return (
-									<div className="block-portfolio-case" ref={ref} key={i}>
+									<div className="block-portfolio-case" key={i}>
 										 <div className="container">
 												<div className="block-portfolio-case__wrap">
 
-													 <Link href={`/${i18n.language}${item.link}`}
+													 <Link href={`/${lang}${item.link}`}
 																 className="block-portfolio-case__image">
 															<div className="block-image">
 																 <div className="block-title"
@@ -111,13 +66,13 @@ const ProjectsCase = ({template}) => {
 												</div>
 
 												<div className="block-portfolio-case__button">
-													 <Link href={`/${i18n.language}${item.link}`}>
+													 <Link href={`/${lang}${item.link}`}>
 															<Button
 																 class="mixed"
 																 color="green"
 																 type="button"
 																 title={item.buttonText}
-																 icon="icon-arrow"
+																 icon="arrow"
 															/>
 													 </Link>
 												</div>

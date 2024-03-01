@@ -1,7 +1,6 @@
 import './services.scss';
 import BlockTag from "../BlockTag/blockTag";
 import "../../../UI/Links";
-import serviceBox from "@/components/BlockWP/blocks/BlockServices/serviceBox";
 import ServiceBox from "@/components/BlockWP/blocks/BlockServices/serviceBox";
 
 export default async function blockServices( getBlock ) {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProjectsItems = ({items, index}) => {
 	 let tagNumber, tagText;
 	 const list = 'projects_list_' + index + "_tags_list";
