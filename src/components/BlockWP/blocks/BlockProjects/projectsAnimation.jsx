@@ -5,9 +5,9 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 const ProjectsAnimation = () => {
-  gsap.registerPlugin(ScrollTrigger);
   
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let listItem = gsap.utils.toArray(".block-portfolio-case");
     
     listItem.forEach((section, index) => {
@@ -17,7 +17,7 @@ const ProjectsAnimation = () => {
           y: 0
         },
         {
-          y: -50,
+          y: -100,
           duration: 1,
           ease: "none",
           scrollTrigger: {

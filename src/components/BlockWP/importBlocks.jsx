@@ -7,6 +7,7 @@ import blockSolution from "@/components/BlockWP/blocks/BlockSolutions/solution";
 import blockFaq from "@/components/BlockWP/blocks/BlockFAQ/faq";
 import blockServices from "@/components/BlockWP/blocks/BlockServices/services";
 import blockProjects from "@/components/BlockWP/blocks/BlockProjects/projects";
+import blockTestimonials from "@/components/BlockWP/blocks/BlockTestimonials/testimonials";
 
 export async function blockGutenberg( listBlocks ) {
   let block = [];
@@ -97,6 +98,17 @@ export async function blockGutenberg( listBlocks ) {
         return blockProjects(block);
       }
       
+      case 'acf/blocktestimonials': {
+        block.push({
+          tag: item.attrs.data.testimonials_tag || '',
+          title: item.attrs.data.testimonials_title || '',
+          text: item.attrs.data.testimonials_text || '',
+          socialCaption: item.attrs.data.testimonials_socials_text || '',
+          list: item.list || '',
+        })
+        return blockTestimonials(block);
+      }
+      
     }
     
     if (item.blockName === 'acf/blockprojectinformation') {
@@ -158,15 +170,6 @@ export async function blockGutenberg( listBlocks ) {
         tag: item.attrs.data.advantages_tag || '',
         title: item.attrs.data.advantages_title || '',
         text: item.attrs.data.advantages_text || '',
-        list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blocktestimonials') {
-      block.push({
-        tag: item.attrs.data.testimonials_tag || '',
-        title: item.attrs.data.testimonials_title || '',
-        text: item.attrs.data.testimonials_text || '',
-        socialCaption: item.attrs.data.testimonials_socials_text || '',
         list: item.list || '',
       });
     }
