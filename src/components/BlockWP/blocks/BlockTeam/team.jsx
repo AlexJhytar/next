@@ -1,9 +1,8 @@
-import React, {memo} from 'react';
 import './team.scss'
 import BlockTag from "../BlockTag/blockTag";
-// import ArtSlider from "../../../layout/ArtSlider/slider";
+import ArtSlider from "../../../ArtSlider/slider";
 
-const BlockTeam = ({getBlock, pageLoaded}) => {
+export default function blockTeam(getBlock) {
 
 	 const blockItems = () => {
 			const images = [];
@@ -47,12 +46,10 @@ const BlockTeam = ({getBlock, pageLoaded}) => {
 
 						<div className="team__wrap">
 
-							 {/*<ArtSlider getInfo={blockItems()} />*/}
+							 <ArtSlider getInfo={blockItems()} />
 
 						</div>
 				 </div>
 			</section>
 	 )
 }
-
-export default memo(BlockTeam);

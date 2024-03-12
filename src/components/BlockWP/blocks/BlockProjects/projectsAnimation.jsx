@@ -17,12 +17,12 @@ const ProjectsAnimation = () => {
           y: 0
         },
         {
-          y: -100,
+          y: -30,
           duration: 1,
           ease: "none",
           scrollTrigger: {
             trigger: section,
-            start: "top top",
+            start: "center bottom",
             end: "bottom top",
             scrub: true
           }

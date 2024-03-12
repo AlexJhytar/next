@@ -28,7 +28,7 @@
     "react-slick": "^0.30.2",
     "react-timer-hook": "^3.0.7",
     "react-transition-group": "^4.4.5",
-    "swiper": "^11.0.6"
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "20.11.20",
