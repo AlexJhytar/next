@@ -2,14 +2,24 @@ import { getLocale } from 'next-intl/server';
 import { apiWP } from "@/api";
 import portfolioProjects from "@/app/[locale]/portfolio/portfolioProjects";
 
-export default async function portfolio() {
+export default async function portfolio( {searchParams} ) {
   const project = await getData();
-  const lang = await getLocale();
+  const page = searchParams.page;
   
-  return portfolioProjects(project, lang);
+  return portfolioProjects(project, page);
 };
 
 async function getData() {
   const lang = await getLocale();
-  return await apiWP.link(`/portfolio?per_page=10&page=1&lang=${lang}`).then(result => result.data);
+  let totalPage, getData;
+  await apiWP.link(`/portfolio?lang=${lang}`).then(( res ) => {
+    const {data, headers} = res;
+    totalPage = parseInt(headers['x-wp-total']);
+    getData = data;
+  });
+  
+  return {
+    pagesData: getData,
+    existPage: totalPage
+  };
 }
