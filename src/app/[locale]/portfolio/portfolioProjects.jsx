@@ -95,6 +95,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
     <>
       {SEO(`${url}`, `/ua/${url}`)}
       {Banner(idEN, idUA)}
+      
       <section className="portfolio">
         
         <div className="container">
@@ -124,6 +125,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
           </div>
         </div>
       </section>
+      
       {BlocksWP(idEN, idUA)}
     </>
   )
