@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Modal from "@/components/modal";
+import Modal from "@/components/layout/modal";
 import Button from "@/components/UI/Button";
 import { useTranslations } from "next-intl";
 

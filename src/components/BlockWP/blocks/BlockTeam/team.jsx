@@ -1,6 +1,6 @@
 import './team.scss'
 import BlockTag from "../BlockTag/blockTag";
-import ArtSlider from "../../../ArtSlider/slider";
+import ArtSlider from "@/components/layout/ArtSlider/slider";
 
 export default function blockTeam(getBlock) {
 

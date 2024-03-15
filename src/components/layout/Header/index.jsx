@@ -3,11 +3,11 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 
-import ChangeLang from "@/components/Header/ChangeLang";
-import CheckFixedHeader from "@/components/Header/CheckFixedHeader";
-import Navigation from "@/components/Header/Navigation";
+import ChangeLang from "@/components/layout/Header/ChangeLang";
+import CheckFixedHeader from "@/components/layout/Header/CheckFixedHeader";
+import Navigation from "@/components/layout/Header/Navigation";
 import React from "react";
-import Popup from "@/components/Header/popup";
+import Popup from "@/components/layout/Header/popup";
 
 export default async function Header() {
   const t = await getTranslations('Menu');
