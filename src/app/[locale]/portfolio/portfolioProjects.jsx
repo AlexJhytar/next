@@ -2,11 +2,14 @@ import Link from "next/link";
 import Button from "@/components/UI/Button"
 import PortfolioImg from "./portfolioImg"
 import "./portfolio.scss"
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import SEO from "@/components/SEO";
 import BlocksWP from "@/components/BlockWP";
+import Banner from "@/components/layout/Banner";
 
 export default async function portfolioProjects( data, searchParams, url ) {
+  const idEN = 914;
+  const idUA = 1765;
   let page = +searchParams;
   page = !page ? !page && page < 1 ? redirect(url) : 1 : page;
   
@@ -91,6 +94,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
   return (
     <>
       {SEO(`${url}`, `/ua/${url}`)}
+      {Banner(idEN, idUA)}
       <section className="portfolio">
         
         <div className="container">
@@ -120,6 +124,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
           </div>
         </div>
       </section>
+      {BlocksWP(idEN, idUA)}
     </>
   )
 }

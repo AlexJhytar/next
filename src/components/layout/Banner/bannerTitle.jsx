@@ -1,37 +1,19 @@
-import React from 'react';
-
-const BannerTitle = (props) => {
-	 const titleArray = props.title.split(' ');
-
-	 let words = [];
-	 for (let i = 0; i < titleArray.length; i++) {
-			words[words.length] = titleArray[i].split('');
-			words[words.length - 1].push(' ');
-	 }
-
-	 const letters = words.map((item, index) => {
-			return (
-				 <span className="title-word" key={index}>
-						{
-							 item.map((letter, index) => {
-									return (
-										 <span
-												className={`title-letter`}
-												key={index}>
-												{letter}
-				 						</span>
-									)
-							 })
-						}
-			</span>
-			)
-	 })
-
-	 return (
-			<h1 className={`banner__title`}>
-				 {letters}
-			</h1>
-	 );
-};
-
-export default BannerTitle;
+export default function BannerTitle( title ) {
+  const titleArray = title.split(' ');
+  
+  let words = [];
+  for (let i = 0; i < titleArray.length; i++) {
+    words[words.length] = titleArray[i].split('');
+    words[words.length - 1].push(' ');
+  }
+  
+  const letter = item => {
+    return item.map(( l, index ) => <span className={`title-letter`} key={index}>{l}</span>)
+  }
+  
+  const letters = () => {
+    return words.map(( word, index ) => <span className="title-word" key={index}>{letter(word)}</span>)
+  }
+  
+  return (<h1 className={`banner__title`}>{letters()}</h1>)
+}
