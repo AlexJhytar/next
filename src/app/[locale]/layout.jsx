@@ -1,6 +1,6 @@
 import { roboto, manrope } from "@/components/fonts";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 export default function RootLayout( {children, params: {locale}} ) {
