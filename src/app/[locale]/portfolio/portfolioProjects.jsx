@@ -2,13 +2,15 @@ import Link from "next/link";
 import Button from "@/components/UI/Button"
 import PortfolioImg from "./portfolioImg"
 import "./portfolio.scss"
+import { notFound, redirect } from "next/navigation";
+import SEO from "@/components/SEO";
+import BlocksWP from "@/components/BlockWP";
 
-export default async function portfolioProjects( data, searchParams ) {
-  
+export default async function portfolioProjects( data, searchParams, url ) {
   let page = +searchParams;
-  page = !page || page < 1 ? 1 : page;
+  page = !page ? !page && page < 1 ? redirect(url) : 1 : page;
   
-  const per_page = 2;
+  const per_page = 4;
   const totalPage = Math.ceil(data.existPage/per_page)
   const start = (page - 1)*per_page;
   const end = start + per_page;
@@ -78,35 +80,46 @@ export default async function portfolioProjects( data, searchParams ) {
   const prevPage = page - 1 > 0 ? page - 1 : 1;
   const nextPage = page + 1;
   
+  if (page > totalPage) {
+    redirect(url);
+  }
+  
+  if (page < 1) {
+    redirect(url);
+  }
+  
   return (
-    <section className="portfolio">
-      
-      <div className="container">
-        <div className={`portfolio__wrap list`}>
-          {projectLayout}
-        </div>
+    <>
+      {SEO(`${url}`, `/ua/${url}`)}
+      <section className="portfolio">
         
-        <div className="portfolio__pagination">
-          {page === 1 ?
-            <button className="pagination-button button-prev" disabled type="button"/>
-            :
-            <Link href={`?page=${prevPage}`}>
-              <button className="pagination-button button-prev" type="button"/>
-            </Link>
-          }
+        <div className="container">
+          <div className={`portfolio__wrap list`}>
+            {projectLayout}
+          </div>
           
-          <span className="current-page">{page}</span>
-          <span>/</span>
-          <span className="total-page">{totalPage}</span>
-          {page === totalPage ?
-            <button className="pagination-button button-next" disabled type="button"/>
-            :
-            <Link href={`?page=${nextPage}`}>
-              <button className="pagination-button button-next" type="button"/>
-            </Link>
-          }
+          <div className="portfolio__pagination">
+            {page === 1 ?
+              <button className="pagination-button button-prev" disabled type="button"/>
+              :
+              <Link href={page === 2 ? '?' : `?page=${prevPage}`}>
+                <button className="pagination-button button-prev" type="button"/>
+              </Link>
+            }
+            
+            <span className="current-page">{page}</span>
+            <span>/</span>
+            <span className="total-page">{totalPage}</span>
+            {page === totalPage ?
+              <button className="pagination-button button-next" disabled type="button"/>
+              :
+              <Link href={`?page=${nextPage}`}>
+                <button className="pagination-button button-next" type="button"/>
+              </Link>
+            }
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

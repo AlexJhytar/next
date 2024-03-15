@@ -2,11 +2,11 @@ import { getLocale } from 'next-intl/server';
 import { apiWP } from "@/api";
 import portfolioProjects from "@/app/[locale]/portfolio/portfolioProjects";
 
-export default async function portfolio( {searchParams} ) {
+export default async function portfolio( {searchParams } ) {
   const project = await getData();
   const page = searchParams.page;
   
-  return portfolioProjects(project, page);
+  return portfolioProjects(project, page, '/portfolio');
 };
 
 async function getData() {
