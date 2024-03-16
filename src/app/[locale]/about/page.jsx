@@ -1,27 +1,16 @@
-'use client';
-
 import "./about.scss";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import SEO from "@/components/SEO";
+import Banner from "@/components/layout/Banner";
 
 export default function About() {
-  const t = useTranslations('About');
-  const pathName = usePathname();
+  const idEN = 430;
+  const idUA = 664;
+  const url = '/about';
   
   return (
-    <section className="s-about">
-      <div className="container">
-        <p>
-          <br/>
-        </p>
-        <p><br/></p>
-        <p><br/></p>
-        <p><br/></p>
-        <p><br/></p>
-        <h1>{t('title')}</h1>
-        <Link href={`${pathName}/team`}> {t('team')} {`${pathName}/team`} </Link>
-      </div>
-    </section>
-  );
+    <>
+      {SEO(`${url}`, `/ua/${url}`)}
+      {Banner(idEN, idUA)}
+    </>
+  )
 }

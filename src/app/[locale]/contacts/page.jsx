@@ -1,12 +1,16 @@
-import { useTranslations } from "next-intl";
+import SEO from "@/components/SEO";
+import Banner from "@/components/layout/Banner";
 
 const Contacts = () => {
-  const t = useTranslations('Contact');
+  const idEN = 475;
+  const idUA = 666;
+  const url = '/contacts';
   
   return (
-    <div className="container">
-      <h2>{t('title')}</h2>
-    </div>
+    <>
+      {SEO(`${url}`, `/ua/${url}`)}
+      {Banner(idEN, idUA)}
+    </>
   );
 };
 

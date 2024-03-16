@@ -1,13 +1,17 @@
-import { getTranslations } from 'next-intl/server';
+import Banner from "@/components/layout/Banner";
+import SEO from "@/components/SEO";
 
 const Services = async () => {
-  const t = await getTranslations('Services');
+  const idEN = 734;
+  const idUA = 736;
+  const url = '/services';
   
   return (
-    <div className="container">
-      <h2>{t('title')}</h2>
-    </div>
-  );
-};
+    <>
+      {SEO(`${url}`, `/ua/${url}`)}
+      {Banner(idEN, idUA)}
+    </>
+  )
+}
 
 export default Services;
