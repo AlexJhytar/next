@@ -1,9 +1,8 @@
-import React, {memo} from 'react';
 // import ContactForm from "./contactForm";
 // import Cf7FormWrapper from "../../../contactForm/Cf7FormWrapper";
-import './page-contacts.css';
+import './page-contacts.scss';
 
-const BlockContactProject = ({getBlock, pageLoaded}) => {
+export default function blockContactProject(getBlock) {
 	 const time = new Date();
 	 time.setSeconds(time.getSeconds() + 6);
 
@@ -31,7 +30,5 @@ const BlockContactProject = ({getBlock, pageLoaded}) => {
 						})
 				 }
 			</section>
-	 );
+	 )
 }
-
-export default memo(BlockContactProject);

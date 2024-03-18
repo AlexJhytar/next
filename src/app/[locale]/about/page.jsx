@@ -1,6 +1,7 @@
 import "./about.scss";
 import SEO from "@/components/SEO";
 import Banner from "@/components/layout/Banner";
+import BlocksWP from "@/components/BlockWP";
 
 export default function About() {
   const idEN = 430;
@@ -11,6 +12,7 @@ export default function About() {
     <>
       {SEO(`${url}`, `/ua/${url}`)}
       {Banner(idEN, idUA)}
+      {BlocksWP(idEN, idUA)}
     </>
   )
 }

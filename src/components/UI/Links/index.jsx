@@ -1,4 +1,6 @@
-import "./links.css"
+"use client";
+
+import "./links.scss"
 import Link from "next/link";
 
 const Links = ( props ) => {
@@ -6,7 +8,7 @@ const Links = ( props ) => {
     <Link className="block-link"
           title={props.title === undefined ? '' : props.title}
           href={props.url}>
-      <span dangerouslySetInnerHTML={{__html: props.text}}/>
+      <span dangerouslySetInnerHTML={{__html: props.text}} />
       <svg className="arrow-icon" xmlns="http://www.w3.org/2000/svg"
            width="32" height="32" viewBox="0 0 32 32">
         <g fill="none" strokeWidth="1.2"

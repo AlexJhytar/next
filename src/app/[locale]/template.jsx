@@ -28,27 +28,25 @@ export default function Template( {children} ) {
   
   const slideIn = {
     initial: {
-      y: "-100%",
+      y: "-200px",
     },
     animate: {
-      y: ["-100%", "0%", "100%"],
+      y: "0px",
     },
     exit: {
-      y: ["-100%", "0%", "100%"],
+      y: "0px"
     }
   }
   
   return (
     <>
       <motion.div
-        className="page-wrap" style={{opacity: `${pageLoaded}`}}>
+        className="page-wrap"
+        transition={{duration: 1, type: 'easeIn'}}
+        {...anim(slideIn)}
+        style={{opacity: `${pageLoaded}`}}>
         {children}
       </motion.div>
-      <motion.div
-        className="slidePageIn"
-        {...anim(slideIn)}
-        transition={{duration: 1.2, type: 'easeIn'}}
-      ></motion.div>
     </>
   )
 }

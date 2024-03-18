@@ -9,11 +9,19 @@ import blockServices from "@/components/BlockWP/blocks/BlockServices/services";
 import blockProjects from "@/components/BlockWP/blocks/BlockProjects/projects";
 import blockTestimonials from "@/components/BlockWP/blocks/BlockTestimonials/testimonials";
 import blockTeam from "@/components/BlockWP/blocks/BlockTeam/team";
+import blockContactProject
+  from "@/components/BlockWP/blocks/BlockContactProject/blockContactProject";
+import blockQuote from "@/components/BlockWP/blocks/BlockQuote/quote";
+import { getLocale } from "next-intl/server";
+import blockConnection from "@/components/BlockWP/blocks/BlockConnection/connection";
 
 export async function blockGutenberg( listBlocks ) {
+  let language = await getLocale();
+  let lang = language === 'en' ? '' : `/${language}`;
   let block = [];
   
   return await listBlocks.map(( item ) => {
+    console.log(item.blockName)
     block.length = 0;
     switch (item.blockName) {
       case 'acf/blocksolutions': {
@@ -117,8 +125,39 @@ export async function blockGutenberg( listBlocks ) {
           style: item.attrs.data.style_select || '',
           list: item.list
         });
-        
         return blockTeam(block);
+      }
+      case 'acf/blockcontactproject': {
+        block.push({
+          checkboxLabel: item.attrs.data.chexbox_text_contacts_projects || '',
+          title: item.attrs.data.contacts_project_title || '',
+          buttonText: item.attrs.data.form_button_text_contacts_projects || '',
+          idForm: item.attrs.data.id_form_text_contacts_projects || '',
+        });
+        return blockContactProject(block);
+      }
+      case 'acf/blockquote': {
+        block.push({
+          name: item.attrs.data.quote_name || '',
+          position: item.attrs.data.quote_position || '',
+          text: item.attrs.data.quote_text || '',
+          link: item.attrs.data.quote_link || '',
+          linkText: item.attrs.data.quote_button || '',
+          image: item.attrs.data.quote_image_image_data.url_full || '',
+          imageH: item.attrs.data.quote_image_image_data.height || '',
+          imageW: item.attrs.data.quote_image_image_data.width || '',
+        });
+        return blockQuote(block, lang);
+      }
+      
+      case 'acf/blockcontactinformation': {
+        block.push({
+          tag: item.attrs.data.about_tag || '',
+          text: item.attrs.data.about_text || '',
+          title: item.attrs.data.about_title || '',
+          list: item.list || '',
+        });
+        return blockConnection(block);
       }
       
     }
@@ -189,26 +228,6 @@ export async function blockGutenberg( listBlocks ) {
         list: item.list || '',
       });
     }
-    if (item.blockName === 'acf/blockquote') {
-      block.push({
-        name: item.attrs.data.quote_name || '',
-        position: item.attrs.data.quote_position || '',
-        text: item.attrs.data.quote_text || '',
-        link: item.attrs.data.quote_link || '',
-        linkText: item.attrs.data.quote_button || '',
-        image: item.attrs.data.quote_image_image_data.url_full || '',
-        imageH: item.attrs.data.quote_image_image_data.height || '',
-        imageW: item.attrs.data.quote_image_image_data.width || '',
-      });
-    }
-    if (item.blockName === 'acf/blockcontactinformation') {
-      block.push({
-        tag: item.attrs.data.about_tag || '',
-        text: item.attrs.data.about_text || '',
-        title: item.attrs.data.about_title || '',
-        list: item.list || '',
-      });
-    }
     if (item.blockName === 'acf/blockstandarts') {
       block.push({
         tag: item.attrs.data.standarts_tag || '',
@@ -220,14 +239,6 @@ export async function blockGutenberg( listBlocks ) {
     if (item.blockName === 'acf/blockcontent') {
       block.push({
         list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blockcontactproject') {
-      block.push({
-        checkboxLabel: item.attrs.data.chexbox_text_contacts_projects || '',
-        title: item.attrs.data.contacts_project_title || '',
-        buttonText: item.attrs.data.form_button_text_contacts_projects || '',
-        idForm: item.attrs.data.id_form_text_contacts_projects || '',
       });
     }
     if (item.blockName === 'acf/blockhistory') {

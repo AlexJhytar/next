@@ -1,8 +1,7 @@
-import React, {memo} from 'react';
 import BlockTag from "../BlockTag/blockTag";
 import './connection.scss';
 
-const BlockConnection = ({getBlock, pageLoaded}) => {
+export default function blockConnection(getBlock) {
 
 	 const phone = [];
 	 const mail = [];
@@ -105,7 +104,5 @@ const BlockConnection = ({getBlock, pageLoaded}) => {
 				 </div>
 
 			</section>
-	 );
-};
-
-export default memo(BlockConnection);
+	 )
+}

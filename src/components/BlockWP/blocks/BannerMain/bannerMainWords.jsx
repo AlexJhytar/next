@@ -15,12 +15,14 @@ export default function BannerMainWords( {getWord} ) {
     cssEase: "linear",
     autoplaySpeed: 0,
     beforeChange: ( nextIndex ) => {
-      let index = document.querySelector('.words-slider .slick-slide').dataset.index;
-      if (nextIndex === (Math.abs(index) - 1)) {
-        document.querySelector(`.words-slider .slick-slide[data-index="${Math.abs(index)}"]`).dataset.slide = 'active';
-        setTimeout(() => {
-          document.querySelector(`.words-slider .slick-slide[data-index="${Math.abs(index)}"]`).removeAttribute('data-slide');
-        }, 10000);
+      if (document.querySelector('.words-slider .slick-slide') !== null) {
+        let index = document.querySelector('.words-slider .slick-slide').dataset.index;
+        if (nextIndex === (Math.abs(index) - 1)) {
+          document.querySelector(`.words-slider .slick-slide[data-index="${Math.abs(index)}"]`).dataset.slide = 'active';
+          setTimeout(() => {
+            document.querySelector(`.words-slider .slick-slide[data-index="${Math.abs(index)}"]`).removeAttribute('data-slide');
+          }, 10000);
+        }
       }
     },
     arrows: false,
