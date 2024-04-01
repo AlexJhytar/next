@@ -1,13 +1,8 @@
-"use client"
-
-import React, {useEffect, useState, memo} from 'react';
 import './history.scss';
 import BlockTag from "../BlockTag/blockTag";
-import {Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {Pagination, Navigation, Autoplay} from "swiper";
+import HistorySlider from "@/components/BlockWP/blocks/BlockHistory/historySlider";
 
-const BlockHistory = ({getBlock, pageLoaded}) => {
-	 SwiperCore.use([Navigation, Pagination, Autoplay]);
+export default function blockHistory(getBlock) {
 
 	 let historyList = [];
 	 for (let i = 0; i < getBlock[0].list.history_list; i++) {
@@ -23,60 +18,6 @@ const BlockHistory = ({getBlock, pageLoaded}) => {
 			})
 	 }
 
-	 const [swiper, setSwiper] = useState(null);
-	 const [value, setValue] = useState(0);
-
-	 useEffect(() => {
-			window.addEventListener('resize', ()=>{
-				 if (value > 0) {
-						swiper.slideTo(0);
-				 }
-			});
-	 }, [value, swiper]);
-
-
-	 const params = {
-			spaceBetween: 15,
-			slidesPerView: 1,
-			speed: 700,
-			className: "history-slider",
-			navigation: true,
-			pagination: {
-				 type: "fraction",
-			},
-			allowTouchMove: false,
-			watchSlidesProgress: true,
-			updateOnWindowResize: true,
-			breakpoints: {
-				 0: {
-						slidesPerView: 'auto',
-						spaceBetween: 15,
-						allowTouchMove: true,
-				 },
-				 1024: {
-						slidesPerView: 1,
-						spaceBetween: 0,
-						allowTouchMove: false,
-				 }
-			}
-	 }
-
-	 const slide = historyList.map((item, index) => {
-			return (
-				 <SwiperSlide key={index}>
-						<div className="history-date">
-							 <span>{item.year}</span>
-						</div>
-						<div className="history-info">
-							 <h3 className="history-info_title"
-									 dangerouslySetInnerHTML={{__html: item.title}} />
-							 <div className="history-info_text"
-										dangerouslySetInnerHTML={{__html: item.text}} />
-						</div>
-				 </SwiperSlide>
-			)
-	 })
-
 	 return (
 			<section className="history">
 				 <div className="container">
@@ -84,16 +25,10 @@ const BlockHistory = ({getBlock, pageLoaded}) => {
 							 <BlockTag text={getBlock[0].tag} />
 							 <h2 className="page-title"
 									 dangerouslySetInnerHTML={{__html: getBlock[0].title}} />
-
-							 <Swiper onSwiper={setSwiper}
-											 onSlideChange={(index) => setValue(index.realIndex)}
-											 {...params}>
-									{slide}
-							 </Swiper>
+							
+							<HistorySlider list={historyList} />
 						</div>
 				 </div>
 			</section>
 	 );
-};
-
-export default memo(BlockHistory);
+}

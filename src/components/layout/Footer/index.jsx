@@ -66,8 +66,8 @@ export default async function Footer() {
                 © {year} Artilab, All Rights Reserved.
               </div>
               <div className="footer__bottom-links">
-                <Link href={`/${lang}/privacy-policy`}>{t('Privacy')}</Link>
-                <Link href={`/${lang}/terms-conditions`}>{t('Terms')}</Link>
+                <Link href={`${lang}/privacy-policy`}>{t('Privacy')}</Link>
+                <Link href={`${lang}/terms-conditions`}>{t('Terms')}</Link>
               </div>
             </div>
           </div>

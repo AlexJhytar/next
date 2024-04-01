@@ -1,7 +1,4 @@
-import React from 'react';
-
-const BlockHeading = ({getBlock, pageLoaded}) => {
-	 console.log(getBlock)
+export default function blockHeading(getBlock) {
 	 return (
 			<div className="content-block">
 				 <div className="container">
@@ -9,6 +6,4 @@ const BlockHeading = ({getBlock, pageLoaded}) => {
 				 </div>
 			</div>
 	 );
-};
-
-export default BlockHeading;
+}

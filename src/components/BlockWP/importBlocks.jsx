@@ -1,3 +1,4 @@
+import { getLocale } from "next-intl/server";
 import bannerMain from "@/components/BlockWP/blocks/BannerMain/bannerMain";
 import blockAbout from "@/components/BlockWP/blocks/BlockAbout/about";
 import blockClients from "@/components/BlockWP/blocks/BlockClients/clients";
@@ -12,8 +13,15 @@ import blockTeam from "@/components/BlockWP/blocks/BlockTeam/team";
 import blockContactProject
   from "@/components/BlockWP/blocks/BlockContactProject/blockContactProject";
 import blockQuote from "@/components/BlockWP/blocks/BlockQuote/quote";
-import { getLocale } from "next-intl/server";
 import blockConnection from "@/components/BlockWP/blocks/BlockConnection/connection";
+import blockStats from "@/components/BlockWP/blocks/BlockStats/stats";
+import blockStandards from "@/components/BlockWP/blocks/BlockStandards/standards";
+import blockHistory from "@/components/BlockWP/blocks/BlockHistory/history";
+import blockContent from "@/components/BlockWP/blocks/BlockContent/content";
+import blockParagraph from "@/components/BlockWP/blocks/BlockParagraph/paragraph";
+import blockHeading from "@/components/BlockWP/blocks/BlockHeading/heading";
+import blockServicesTwo from "@/components/BlockWP/blocks/BlockServicesTwo/servicesTwo";
+import blockProcess from "@/components/BlockWP/blocks/BlockProcess/process";
 
 export async function blockGutenberg( listBlocks ) {
   let language = await getLocale();
@@ -51,12 +59,6 @@ export async function blockGutenberg( listBlocks ) {
         block.push(item.list);
         return blockClients(block);
       }
-      // case 'acf/blockgallery': {
-      //   block.push({
-      //     list: item.gallery_list
-      //   });
-      //   break;
-      // }
       case 'acf/blockdevelopment': {
         block.push({
           list: item.list
@@ -86,8 +88,7 @@ export async function blockGutenberg( listBlocks ) {
         
         return blockFaq(block);
       }
-      
-      case'acf/blockservices': {
+      case 'acf/blockservices': {
         block.push({
           list: item.list,
           tag: item.attrs.data.service_tag || '',
@@ -96,7 +97,6 @@ export async function blockGutenberg( listBlocks ) {
         });
         return blockServices(block);
       }
-      
       case 'acf/blockprojects': {
         block.push({
           tag: item.attrs.data.projects_tag || '',
@@ -105,7 +105,6 @@ export async function blockGutenberg( listBlocks ) {
         })
         return blockProjects(block);
       }
-      
       case 'acf/blocktestimonials': {
         block.push({
           tag: item.attrs.data.testimonials_tag || '',
@@ -116,7 +115,6 @@ export async function blockGutenberg( listBlocks ) {
         })
         return blockTestimonials(block);
       }
-      
       case 'acf/blockslider': {
         block.push({
           tag: item.attrs.data.team_tag || '',
@@ -149,7 +147,6 @@ export async function blockGutenberg( listBlocks ) {
         });
         return blockQuote(block, lang);
       }
-      
       case 'acf/blockcontactinformation': {
         block.push({
           tag: item.attrs.data.about_tag || '',
@@ -159,7 +156,77 @@ export async function blockGutenberg( listBlocks ) {
         });
         return blockConnection(block);
       }
-      
+      case 'acf/blockstats': {
+        block.push({
+          list: item.list || '',
+        });
+        
+        return blockStats(block);
+      }
+      case 'acf/blockstandarts': {
+        block.push({
+          tag: item.attrs.data.standarts_tag || '',
+          text: item.attrs.data.standarts_text || '',
+          title: item.attrs.data.standarts_title || '',
+          list: item.list || '',
+        });
+        
+        return blockStandards(block);
+      }
+      case 'acf/blockhistory': {
+        block.push({
+          tag: item.attrs.data.history_tag || '',
+          title: item.attrs.data.history_title || '',
+          list: item.list
+        });
+        
+        return blockHistory(block);
+      }
+      case 'acf/blockcontent': {
+        block.push({
+          list: item.list || '',
+        });
+        
+        return blockContent(block);
+      }
+      case 'core/paragraph': {
+        block.push({
+          content: item.rendered || '',
+        });
+        
+        return blockParagraph(block);
+      }
+      case 'core/heading': {
+        block.push({
+          content: item.rendered || '',
+        });
+        
+        return blockHeading(block);
+      }
+      case 'acf/blockservicesblock': {
+        block.push({
+          list: item.list,
+          tag: item.attrs.data.services_block_tag || '',
+          title: item.attrs.data.services_block_title || '',
+        });
+        
+        return blockServicesTwo(block);
+      }
+      case 'acf/blockprocess': {
+        block.push({
+          tag: item.attrs.data.tag_pocces || '',
+          title: item.attrs.data.title_pocces || '',
+          list: item.list
+        });
+        
+        return blockProcess(block);
+      }
+      // case 'acf/blockgallery': {
+      //   block.push({
+      //     list: item.gallery_list
+      //   });
+      //   break;
+      // }
     }
     
     if (item.blockName === 'acf/blockprojectinformation') {
@@ -168,20 +235,6 @@ export async function blockGutenberg( listBlocks ) {
         title_2: item.attrs.data.project_information_title_2 || '',
         tag: item.attrs.data.project_information_tag || '',
         text: item.attrs.data.project_information_text || '',
-        list: item.list
-      });
-    }
-    if (item.blockName === 'acf/blockservicesblock') {
-      block.push({
-        list: item.list,
-        tag: item.attrs.data.services_block_tag || '',
-        title: item.attrs.data.services_block_title || '',
-      });
-    }
-    if (item.blockName === 'acf/blockprocess') {
-      block.push({
-        tag: item.attrs.data.tag_pocces || '',
-        title: item.attrs.data.title_pocces || '',
         list: item.list
       });
     }
@@ -197,26 +250,11 @@ export async function blockGutenberg( listBlocks ) {
         list: item.list
       });
     }
-    if (item.blockName === 'core/heading') {
-      block.push({
-        content: item.rendered || '',
-      });
-    }
-    if (item.blockName === 'core/paragraph') {
-      block.push({
-        content: item.rendered || '',
-      });
-    }
     if (item.blockName === 'acf/blockadvantages') {
       block.push({
         tag: item.attrs.data.advantages_tag || '',
         title: item.attrs.data.advantages_title || '',
         text: item.attrs.data.advantages_text || '',
-        list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blockstats') {
-      block.push({
         list: item.list || '',
       });
     }
@@ -226,26 +264,6 @@ export async function blockGutenberg( listBlocks ) {
         title: item.attrs.data.tools_title || '',
         text: item.attrs.data.tools_text || '',
         list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blockstandarts') {
-      block.push({
-        tag: item.attrs.data.standarts_tag || '',
-        text: item.attrs.data.standarts_text || '',
-        title: item.attrs.data.standarts_title || '',
-        list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blockcontent') {
-      block.push({
-        list: item.list || '',
-      });
-    }
-    if (item.blockName === 'acf/blockhistory') {
-      block.push({
-        tag: item.attrs.data.history_tag || '',
-        title: item.attrs.data.history_title || '',
-        list: item.list
       });
     }
     if (item.blockName === 'acf/blockrecentproject') {

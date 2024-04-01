@@ -1,20 +1,15 @@
+@use "sass:math";
 @import "../../../../../src/styles/abstacts/_style";
 
 .block-stats {
   width: 100%;
-  padding: 0 0 150px;
-  background-color: $bg-dark-blue;
-  @media (max-width: $desktop-wide) {
-    padding: 0 0 120px;
-  }
-  @media (max-width: $ipad) {
-    padding: 0 0 80px;
-  }
-  
+  z-index: 1;
+  position: relative;
+
   .container {
     text-align: center;
   }
-  
+
   &__wrap {
     @extend %inline-flex;
     align-items: initial;
@@ -22,7 +17,7 @@
     width: 100%;
     justify-content: center;
     margin: 0 auto;
-    @media (max-width: $desktop) {
+    @media (max-width: $desktop-wide) {
       gap: 16px;
     }
     @media (max-width: $ipad) {
@@ -34,12 +29,12 @@
       gap: 10px;
     }
   }
-  
+
   &__item {
-    background-color: rgba(99, 159, 171, 0.07);
+    background-color: $bg-dark-blue;
     width: 340px;
     padding: 30px 30px 30px;
-    box-shadow: 5px 5px 27px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 5px 5px 27px 0 rgba(0, 0, 0, 0.05);
     border-radius: 30px;
     opacity: 0;
     transform: translateY(10px);
@@ -50,7 +45,7 @@
     @media (max-width: $desktop-wide) {
       width: 265px;
     }
-    @media (max-width: $desktop) {
+    @media (max-width: $desktop-wide) {
       width: 228px;
       padding: 24px 20px 24px;
       border-radius: 20px;
@@ -69,17 +64,17 @@
     @media (max-width: $phone) {
       padding: 30px 16px 30px;
     }
-  
+
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         .in-view & {
           opacity: 1;
-          transition: opacity 1s 0s + ($i / 5), transform 1s 0s + ($i / 5);
+          transition: opacity 1s 0s + math.div($i, 5), transform 1s 0s + math.div($i, 5);
           transform: translateY(0);
         }
       }
     }
-    
+
     .item-caption {
       font-size: 36px;
       text-transform: uppercase;
@@ -88,10 +83,10 @@
       font-family: $ff_Manrope;
       color: $color-white;
       margin-bottom: 20px;
-      @media (max-width: $desktop-wide) {
+      @media (max-width: $wide-screen) {
         font-size: 32px;
       }
-      
+
       span {
         font-size: 24px;
         text-transform: none;
@@ -106,14 +101,14 @@
         }
       }
     }
-    
+
     .item-text {
       @include fw();
       @include lh();
       font-size: 18px;
       color: $color-white;
       @media (max-width: $wide-screen) {
-        font-size: 18px;
+        font-size: 16px;
       }
       @media (max-width: $desktop-wide) {
         font-size: 15px;

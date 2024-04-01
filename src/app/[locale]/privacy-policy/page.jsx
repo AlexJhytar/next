@@ -3,9 +3,9 @@ import Banner from "@/components/layout/Banner";
 import BlocksWP from "@/components/BlockWP";
 
 const Contacts = () => {
-  const idEN = '475';
-  const idUA = '666';
-  const url = '/contacts';
+  const idEN = '3';
+  const idUA = '677';
+  const url = '/privacy-policy';
   
   return (
     <>

@@ -1,6 +1,4 @@
-import React from 'react';
-
-const BlockParagraph = ({getBlock, pageLoaded}) => {
+export default function blockParagraph(getBlock) {
 	 return (
 			<div className="content-block">
 				 <div className="container">
@@ -8,6 +6,4 @@ const BlockParagraph = ({getBlock, pageLoaded}) => {
 				 </div>
 			</div>
 	 );
-};
-
-export default BlockParagraph;
+}
