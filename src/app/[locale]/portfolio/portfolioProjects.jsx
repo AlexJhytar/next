@@ -6,12 +6,15 @@ import { redirect } from "next/navigation";
 import SEO from "@/components/SEO";
 import BlocksWP from "@/components/BlockWP";
 import Banner from "@/components/layout/Banner";
+import { getLocale } from "next-intl/server";
 
 export default async function portfolioProjects( data, searchParams, url ) {
+  let language = await getLocale();
   const idEN = 914;
   const idUA = 1765;
   let page = +searchParams;
   page = !page ? !page && page < 1 ? redirect(url) : 1 : page;
+  const lang = language === 'en' ? '' : `/${language}`;
   
   const per_page = 4;
   const totalPage = Math.ceil(data.existPage/per_page)
@@ -21,7 +24,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
   const entriesPerPage = data.pagesData.slice(start, end);
   const projectLayout = entriesPerPage.map(item => {
     return (
-      <Link href={item.slug} className="portfolio__block" key={item.id}>
+      <Link href={`${lang}${url}/${item.slug}`} className="portfolio__block" key={item.id}>
         <div className="portfolio__block-image">
           <div className="block-title"
                dangerouslySetInnerHTML={{__html: item.acf.title_portfolio_inf}}
