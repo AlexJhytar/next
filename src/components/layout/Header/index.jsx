@@ -8,6 +8,7 @@ import CheckFixedHeader from "@/components/layout/Header/CheckFixedHeader";
 import Navigation from "@/components/layout/Header/Navigation";
 import React from "react";
 import Popup from "@/components/layout/Header/popup";
+import Burger from "@/components/layout/Header/burger";
 
 export default async function Header() {
   const t = await getTranslations('Menu');
@@ -38,7 +39,7 @@ export default async function Header() {
             </div>
           </div>
           
-          <div className="mob-menu" ><span/></div>
+          <Burger />
         
         </div>
       </header>
