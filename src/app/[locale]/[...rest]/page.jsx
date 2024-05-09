@@ -9,13 +9,15 @@ export default async function CatchAllPage({params}) {
   let links = [];
   data.map(page => {
     links.push(page.slug)
-    //console.log(page.slug)
   })
   
-  if (links.includes(slug)) {
-    return defaultPage();
-  } else {
-    return notFound();
+  switch (links.includes(slug)) {
+    case false: {
+      return notFound();
+    }
+    default: {
+      return defaultPage(slug);
+    }
   }
 }
 

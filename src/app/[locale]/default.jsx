@@ -1,14 +1,13 @@
+import SEO from "@/components/SEO";
+import Banner from "@/components/layout/Banner";
+import BlocksWP from "@/components/BlockWP";
 
-export default function defaultPage() {
+export default function defaultPage( slug ) {
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1>default page</h1>
-    </div>
+    <>
+      {SEO(slug)}
+      {Banner(slug)}
+      {BlocksWP(slug)}
+    </>
   );
 }

@@ -29,7 +29,7 @@ export async function blockGutenberg( listBlocks ) {
   let block = [];
   
   return await listBlocks.map(( item ) => {
-    console.log(item.blockName)
+    //console.log(item.blockName)
     block.length = 0;
     switch (item.blockName) {
       case 'acf/blocksolutions': {

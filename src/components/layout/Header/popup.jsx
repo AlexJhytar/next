@@ -12,7 +12,7 @@ const Popup = () => {
     setState(prevCheck => !prevCheck);
   }
   
-  console.log(state)
+  //console.log(state)
   
   return (
     <>

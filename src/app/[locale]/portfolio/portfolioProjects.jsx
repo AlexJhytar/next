@@ -10,11 +10,9 @@ import { getLocale } from "next-intl/server";
 
 export default async function portfolioProjects( data, searchParams, url ) {
   let language = await getLocale();
-  const idEN = 914;
-  const idUA = 1765;
   let page = +searchParams;
+  const lang = language === 'en' ? '' : `/${language}/`;
   page = !page ? !page && page < 1 ? redirect(url) : 1 : page;
-  const lang = language === 'en' ? '' : `/${language}`;
   
   const per_page = 4;
   const totalPage = Math.ceil(data.existPage/per_page)
@@ -96,8 +94,8 @@ export default async function portfolioProjects( data, searchParams, url ) {
   
   return (
     <>
-      {SEO(`${url}`, `/ua/${url}`)}
-      {Banner(idEN, idUA)}
+      {SEO(url)}
+      {Banner(url)}
       
       <section className="portfolio">
         
@@ -129,7 +127,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
         </div>
       </section>
       
-      {BlocksWP(idEN, idUA)}
+      {BlocksWP(url)}
     </>
   )
 }

@@ -17,7 +17,8 @@ export default function ChangeLang( {lang} ) {
     }
     
     const newPath = currentPath.join('/');
-    router.push(newPath)
+    router.push(newPath);
+    router.refresh();
   }
   
   return (

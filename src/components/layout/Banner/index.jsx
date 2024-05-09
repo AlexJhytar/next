@@ -4,12 +4,12 @@ import BannerSubTitle from "./bannerSubTitle";
 import { apiWP } from "@/api";
 import { getLocale } from "next-intl/server";
 
-export default async function Banner( idEN, idUA ) {
+export default async function Banner( slug ) {
   const lang = await getLocale();
   
-  let idPage;
-  if (lang === 'en') idPage = idEN;
-  if (lang === 'ua') idPage = idUA;
+  const idPage = await apiWP.getPages(slug).then(result => {
+    return lang === 'en' ? result[0].translations.en : result[0].translations.ua
+  });
   
   const blocks = () => getData(idPage).then(res => {
    return res.map(( item, key ) => {
@@ -39,5 +39,5 @@ export default async function Banner( idEN, idUA ) {
 };
 
 async function getData( idPage ) {
-  return await apiWP.getPages(idPage).then(res => res.block_data);
+  return await apiWP.getPage(idPage).then(res => res.block_data);
 }

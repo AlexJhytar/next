@@ -1,11 +1,17 @@
 import { getLocale } from "next-intl/server";
 import { apiWP } from "@/api";
+import Banner from "@/components/layout/Banner";
 
 export default async function PortfolioPage( {params} ) {
   const slug = await params.slug;
   const data = await getPage(slug).then(res => res[0]);
+  const idPage = await data.id;
   
-  return <div className="container">Post: {data.id}</div>
+  return (
+    <>
+      {/*{Banner(slug)}*/}
+    </>
+  )
 }
 
 async function getPage( params ) {
