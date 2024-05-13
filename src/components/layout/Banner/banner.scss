@@ -234,6 +234,18 @@ $item: 20;
     width: 100%;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-flow: column;
+    gap: 60px;
+    @media (max-width: $ipad) {
+      gap: 50px;
+    }
+    @media (max-width: $phone-wide) {
+      gap: 40px;
+    }
+    @media (max-width: $phone) {
+      gap: 30px;
+    }
   }
 
   &__title {
@@ -479,16 +491,6 @@ $item: 20;
   &__views {
     background-color: $bg-dark-blue;
     width: 100%;
-    padding-bottom: 60px;
-    @media (max-width: $ipad) {
-      padding-bottom: 50px;
-    }
-    @media (max-width: $phone-wide) {
-      padding-bottom: 40px;
-    }
-    @media (max-width: $phone) {
-      padding-bottom: 30px;
-    }
 
     ul {
       @extend %flex;
@@ -505,6 +507,10 @@ $item: 20;
           height: 28px;
         }
 
+        img {
+          filter: brightness(0) invert(1);
+        }
+
         svg {
           width: 100%;
           height: 100%;
@@ -514,6 +520,10 @@ $item: 20;
 
         &.active {
           pointer-events: none;
+
+          img {
+            filter: brightness(1) invert(0);
+          }
 
           svg {
             fill: $bg-green;

@@ -3,6 +3,7 @@ import BannerTitle from "./bannerTitle";
 import BannerSubTitle from "./bannerSubTitle";
 import { apiWP } from "@/api";
 import { getLocale } from "next-intl/server";
+import PortfolioComponents from "@/app/[locale]/portfolio/portfolioComponents";
 
 export default async function Banner( slug ) {
   const lang = await getLocale();
@@ -12,7 +13,7 @@ export default async function Banner( slug ) {
   });
   
   const blocks = () => getData(idPage).then(res => {
-   return res.map(( item, key ) => {
+    return res.map(( item, key ) => {
       if (item.blockName === 'acf/blockbanner') {
         return (
           <div className="banner__wrap" key={key}>
@@ -33,6 +34,8 @@ export default async function Banner( slug ) {
       <div className="container">
         {await blocks()}
       </div>
+      
+      <PortfolioComponents/>
     </section>
   )
   

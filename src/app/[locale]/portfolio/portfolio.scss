@@ -6,7 +6,7 @@
   @media (max-width: $ipad) {
     margin: 0 0 80px;
   }
-  
+
   &__views {
     background-color: $bg-dark-blue;
     width: 100%;
@@ -17,13 +17,13 @@
     @media (max-width: $phone-wide) {
       padding-bottom: 40px;
     }
-    
+
     ul {
       @extend %flex;
       align-items: center;
       justify-content: center;
       gap: 20px;
-      
+
       li {
         width: 32px;
         height: 32px;
@@ -32,22 +32,30 @@
           width: 28px;
           height: 28px;
         }
-        
+
+        img {
+          filter: grayscale(1);
+        }
+
         svg {
           width: 100%;
           height: 100%;
           fill: $bg-gray3;
           transition: fill .3s;
         }
-        
+
         &.active {
           pointer-events: none;
-          
+
+          img {
+            filter: grayscale(0);
+          }
+
           svg {
             fill: $bg-green;
           }
         }
-        
+
         &:hover {
           svg {
             fill: $bg-white;
@@ -59,7 +67,7 @@
       }
     }
   }
-  
+
   &__tags {
     background-color: $bg-dark-blue;
     @extend %flex;
@@ -70,7 +78,7 @@
     @media (max-width: $ipad) {
       padding-bottom: 40px;
     }
-    
+
     .container {
       @extend %flex;
       width: 100%;
@@ -89,7 +97,7 @@
         width: calc(100% + 40px);
       }
     }
-    
+
     &-wrap {
       @extend %inline-flex;
       gap: 12px;
@@ -109,7 +117,7 @@
         padding: 0 20px 20px 20px;
       }
     }
-    
+
     a {
       padding: 16px 30px 16px 57px;
       border-radius: 30px;
@@ -135,7 +143,7 @@
         font-size: 14px;
         padding: 12px 26px 12px 42px;
       }
-      
+
       &::before {
         content: "";
         position: absolute;
@@ -152,29 +160,29 @@
           left: 20px;
         }
       }
-      
+
       &.active {
         pointer-events: none;
         background-color: $bg-green;
         color: $color-white;
-        
+
         &::before {
           filter: brightness(20);
         }
       }
-      
+
       &:hover {
         background-color: $bg-green;
         color: $color-white;
-        
+
         &::before {
           filter: brightness(20);
         }
       }
-      
+
     }
   }
-  
+
   &__wrap {
     @extend %flex;
     flex-wrap: wrap;
@@ -188,17 +196,17 @@
     @media (max-width: $phone-wide) {
       gap: 60px;
     }
-    
+
     &.list-style {
       gap: 20px;
-      
+
       .portfolio__block {
         width: 100%;
         @media (max-width: $tablet) {
           justify-content: flex-start;
           text-align: left;
         }
-        
+
         &:nth-of-type(2n) {
           .portfolio__block-content .block-tags {
             @media (max-width: $tablet) {
@@ -207,11 +215,11 @@
             }
           }
         }
-        
+
         &-image {
           display: none;
         }
-        
+
         &-content {
           width: 100%;
           max-width: 100%;
@@ -237,7 +245,7 @@
           @media (max-width: $phone) {
             padding: 30px 20px;
           }
-          
+
           .block-title {
             width: 20%;
             transition: none;
@@ -245,15 +253,15 @@
               width: 100%;
             }
           }
-          
+
           .block-text {
             display: none;
           }
-          
+
           .button {
             display: none;
           }
-          
+
           .block-info {
             @extend %inline-flex;
             justify-content: space-between;
@@ -266,11 +274,11 @@
               margin-top: 16px;
               flex-wrap: wrap;
             }
-            
+
             &_separator {
               display: none;
             }
-            
+
             &_year {
               width: 10%;
               @media (max-width: $ipad) {
@@ -279,7 +287,7 @@
                 font-weight: 600;
               }
             }
-            
+
             &_description {
               width: 80%;
               @media (max-width: $ipad) {
@@ -287,7 +295,7 @@
               }
             }
           }
-          
+
           .block-tags {
             margin-top: 0;
             transition: none;
@@ -296,38 +304,38 @@
               margin-top: 16px;
               display: flex;
             }
-            
+
             span {
               background-color: $bg-green;
               color: $color-white;
-              
+
               &::before {
                 filter: brightness(100);
               }
             }
           }
-          
+
           .block-link {
             @media (max-width: $ipad) {
               display: flex;
               margin-top: 40px;
             }
           }
-          
+
           .button {
             @media (max-width: $ipad) {
               display: none;
             }
           }
-          
+
           &:hover {
             background-color: rgba(99, 159, 171, 0.07);
             box-shadow: 1.37203px 6.40279px 25.4815px rgba(20, 33, 61, 0.103259), 0.290237px 1.35444px 6.51852px rgba(20, 33, 61, 0.0667407);
-            
+
             .block-title {
               color: $color-dark;
             }
-            
+
             .block-info {
               color: $color-dark;
             }
@@ -335,13 +343,13 @@
         }
       }
     }
-    
+
     .spinner-container {
       position: absolute;
       height: 100%;
     }
   }
-  
+
   &__block {
     width: 100%;
     @extend %flex;
@@ -357,7 +365,7 @@
     @media (max-width: $tablet) {
       flex-wrap: wrap;
     }
-    
+
     &:nth-of-type(2n) {
       .portfolio__block {
         &-image {
@@ -365,14 +373,14 @@
           @media (max-width: $tablet) {
             order: 0;
           }
-          
+
           .block-title {
             @media (max-width: $tablet) {
               text-align: left;
             }
           }
         }
-        
+
         &-content {
           .block-tags {
             @media (max-width: $tablet) {
@@ -386,7 +394,7 @@
           }
         }
       }
-  
+
       @media (max-width: $tablet) {
         justify-content: flex-end;
         text-align: right;
@@ -396,7 +404,7 @@
         text-align: left;
       }
     }
-    
+
     &-image {
       width: 100%;
       max-width: 660px;
@@ -422,7 +430,7 @@
         height: 260px;
         max-width: 100%;
       }
-      
+
       &::before {
         content: "";
         position: absolute;
@@ -441,7 +449,7 @@
           height: 240px;
         }
       }
-      
+
       .block-title {
         position: absolute;
         top: 66px;
@@ -470,7 +478,7 @@
           left: 30px;
           top: 30px;
           width: 70%;
-          
+
           br {
             display: none;
           }
@@ -490,7 +498,7 @@
           width: 70%;
         }
       }
-      
+
       picture {
         width: 120px;
         height: 100%;
@@ -509,14 +517,14 @@
         @media (max-width: $phone) {
           width: 22%;
         }
-        
+
         img {
           width: 100%;
           height: auto;
           object-fit: cover;
           object-position: top;
         }
-        
+
         &:nth-of-type(1) {
           left: 98px;
           top: 321px;
@@ -545,7 +553,7 @@
             top: 140px;
           }
         }
-        
+
         &:nth-of-type(2) {
           left: 190px;
           top: 231px;
@@ -572,7 +580,7 @@
             top: 105px;
           }
         }
-        
+
         &:nth-of-type(3) {
           left: 313px;
           top: 249px;
@@ -604,7 +612,7 @@
             top: 110px;
           }
         }
-        
+
         &:nth-of-type(4) {
           left: 400px;
           top: 163px;
@@ -631,7 +639,7 @@
             top: 75px;
           }
         }
-        
+
         &:nth-of-type(5) {
           left: 525px;
           top: 190px;
@@ -663,7 +671,7 @@
             top: 85px;
           }
         }
-        
+
         &:nth-of-type(6) {
           left: 580px;
           top: 57px;
@@ -692,11 +700,11 @@
         }
       }
     }
-    
+
     &-content {
       max-width: 686px;
       width: 100%;
-      
+
       .block-title {
         @include fw(800);
         font-size: 24px;
@@ -717,7 +725,7 @@
           font-size: 16px;
         }
       }
-      
+
       .block-info {
         font-weight: 400;
         font-size: 18px;
@@ -736,18 +744,18 @@
         @media (max-width: $phone-wide) {
           font-size: 14px;
         }
-        
+
         &_separator {
           margin: 0 5px;
         }
-        
+
         &_description {
           p {
             display: contents;
           }
         }
       }
-      
+
       .block-text {
         margin-top: 41px;
         font-size: 18px;
@@ -767,7 +775,7 @@
           font-size: 14px;
         }
       }
-      
+
       .block-tags {
         margin-top: 41px;
         @extend %flex;
@@ -779,7 +787,7 @@
         @media (max-width: $phone-wide) {
           gap: 16px;
         }
-        
+
         span {
           @include fw(500);
           font-size: 16px;
@@ -802,7 +810,7 @@
             font-size: 13px;
             padding: 12px 20px 12px 40px;
           }
-          
+
           &::before {
             content: "";
             position: absolute;
@@ -822,57 +830,57 @@
           }
         }
       }
-      
+
       .block-link {
         display: none;
       }
-      
+
       .button {
         margin-top: 80px;
         @media (max-width: $desktop) {
           margin-top: 60px;
         }
-        
+
         @media (max-width: $ipad) {
           margin-top: 40px;
         }
         @media (max-width: $phone) {
           width: 100%;
         }
-        
+
         span {
           width: 52%;
         }
       }
     }
-    
+
     &:hover {
       .portfolio__block-image {
         picture {
           &:nth-of-type(1) {
             animation: slideProject .5s linear;
           }
-          
+
           &:nth-of-type(2) {
             animation: slideProject .5s linear;
             animation-delay: .1s;
           }
-          
+
           &:nth-of-type(3) {
             animation: slideProject .5s linear;
             animation-delay: .2s;
           }
-          
+
           &:nth-of-type(4) {
             animation: slideProject .5s linear;
             animation-delay: .3s;
           }
-          
+
           &:nth-of-type(5) {
             animation: slideProject .5s linear;
             animation-delay: .4s;
           }
-          
+
           &:nth-of-type(6) {
             animation: slideProject .5s linear;
             animation-delay: .5s;
@@ -881,7 +889,7 @@
       }
     }
   }
-  
+
   &__pagination {
     @extend %flex;
     align-items: center;
@@ -898,7 +906,7 @@
     @media (max-width: $phone) {
       gap: 20px;
     }
-    
+
     .pagination-button {
       width: 84px;
       height: 40px;
@@ -911,7 +919,7 @@
         width: 76px;
         height: 34px;
       }
-      
+
       &::before {
         content: '';
         position: absolute;
@@ -928,25 +936,25 @@
           background-size: 20px 14px;
         }
       }
-      
+
       &:hover {
         background-color: $bg-green;
-        
+
         &::before {
           filter: brightness(20);
         }
       }
-      
+
       &.button-next {
         transform: rotate(180deg);
       }
-      
+
       &:disabled {
         opacity: .5;
         pointer-events: none;
       }
     }
-    
+
     span {
       @include fw(600);
       font-size: 16px;
@@ -957,7 +965,7 @@
       @media (max-width: $phone-wide) {
         font-size: 14px;
       }
-      
+
       &.current-page {
         width: 40px;
         height: 40px;
@@ -973,7 +981,7 @@
           height: 34px;
         }
       }
-      
+
       &.total-page {
         font-weight: 600;
       }
@@ -983,7 +991,7 @@
 
 .page-portfolio {
   .banner {
-  
+
   }
 }
 

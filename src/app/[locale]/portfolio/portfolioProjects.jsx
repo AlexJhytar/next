@@ -100,7 +100,7 @@ export default async function portfolioProjects( data, searchParams, url ) {
       <section className="portfolio">
         
         <div className="container">
-          <div className={`portfolio__wrap list`}>
+          <div className="portfolio__wrap">
             {projectLayout}
           </div>
           
